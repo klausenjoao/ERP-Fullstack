@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../registrar/styleRegistrar.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+    rel="shortcut icon"
+    type="imagex/png"
+    href="../Assets/iconeGuia/iconeGuia.ico"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="entrar">
+        <img src="../Assets/Logo/logoPescador.png" alt="" />
+        <h3>Associação Maré Vermelha</h3>
+        <a href="/index.html">
+          <button class="btnEntrar">Entrar</button>
+        </a>
+      </div>
+      <div class="registrar">
+        <div class="form">
+          <form id="form-usuario">
+            <div class="form-header">
+              <div class="title">
+                <h1>Cadastrar Usuarios</h1>
+              </div>
+            </div>
+
+            <div class="input-group">
+
+              <div class="input-box-usuario">
+                <label for="email">E-mail</label>
+                <input
+                  id="email"
+                  type="email"
+                  name="email"
+                  placeholder="Digite seu e-mail"
+                  required
+                />
+              </div>
+
+              <div class="input-box-usuario">
+                <label for="password">Senha</label>
+                <input
+                  id="password"
+                  type="password"
+                  name="password"
+                  placeholder="****"
+                  required
+                />
+              </div>
+              <div class="cadastrar-button">
+                <button type="button" id="cadastrarUsuario" onclick="registrar()">Cadastrar</button>
+              </div>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-auth-compat.js"></script>
+  <script src="../firebase-init.js"></script>
+  <script src="../registrar/registrar.js"></script>
+</html>

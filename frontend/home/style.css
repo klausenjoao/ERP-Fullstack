@@ -1,0 +1,124 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Inter", sans-serif;
+    box-sizing: border-box;
+}
+
+.header{
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, .212);
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.conteinerConfig{
+    display: flex;
+    margin-top: 40px;
+    width: 90%;
+    margin-left: 25px;
+    margin-right: 25px;
+    height: 80vh;
+    justify-content: space-between;
+}
+
+.conteiner1, .conteiner2, .conteiner3 {
+    width: 30%;
+    height: 90%;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, .212);
+}
+
+.componentesheader{
+    display: flex;
+    align-items: center;
+}
+
+.configGrupo img{
+    width: 40px;
+}
+
+.configGrupo img:hover{
+    background-image: black;
+}
+
+.back-button {
+    display: flex;
+    align-items: center;
+    margin-left: 7rem;
+}
+
+.back-button button {
+    border: none;
+    background-color: #B9110C;
+    padding: 0.4rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: 500;
+    color: #fff;
+}
+
+.back-button button:hover {
+    background-color: #CD0C0D;
+}
+
+.listaOpcoes{
+    width: 50%;
+    align-items: center;
+    margin: 20px;
+}
+
+ul{
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+}
+
+ul li a{
+    text-decoration: none;
+    color: black;
+}
+
+ul li a:hover{
+    color: #CD0C0D;
+}
+
+.logo img{
+    width: auto;
+    height: 8vh;
+}
+
+ul li ul.opcoesSuspensas li{
+    display: block;
+}
+
+ul li ul.opcoesSuspensas{
+    position: absolute;
+    z-index: 999;
+    display: none;
+}
+
+ul li:hover ul.opcoesSuspensas{
+    display: block;
+}
+
+.opcoesSuspensas{
+    background-color: white;
+    border: 2px solid #B9110C;
+    border-radius: 5%;
+    padding: 5px;
+}
+
+
+
+.opcoesSuspensas li a{
+    color: black;
+}
+
+.opcoesSuspensas li a:hover{
+    background-color: #B9110C;
+    color: white;
+    width: max-content;
+}

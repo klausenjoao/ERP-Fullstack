@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gerenciador</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+    rel="shortcut icon"
+    type="imagex/png"
+    href="../Assets/iconeGuia/iconeGuia.ico"
+    />
+  </head>
+
+  <body>
+    <div class="header">
+      <div class="logo">
+        <a href="">
+          <img src="../Assets/Logo/logoPescador.png" alt="" />
+        </a>
+      </div>
+
+      <div class="listaOpcoes">
+        <ul>
+          <li>
+            <a href="../monitoramento/monitoramento.html">Monitoramento</a>
+          </li>
+          <li>
+            <a href="#">Cadastros</a>
+            <ul class="opcoesSuspensas">
+              <li><a href="../cadastros/usuario/cadastrosUsuario.html">Cadastro de usuários</a></li>
+              <li><a href="../cadastros/usuario/usuarios.html">Usuários</a></li>
+              <li><a href="../cadastros/produtos/cadastrosProdutos.html">Cadastro de produtos</a></li>
+              <li><a href="../cadastros/produtos/produtos.html">Produtos</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">Financeiro</a>
+            <ul class="opcoesSuspensas">
+              <li><a href="../cadastroUsuario/cadastrosUsuarios.html">Cadastro de usuários</a></li>
+              <li><a href="../cadastroUsuario/usuarios.html">Usuários</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">Relatórios</a>
+          </li>
+        </ul>
+      </div>
+      <div class="componentesheader">
+        <div class="configGrupo">
+          <a href="../configuracoes/configuracoes.html">
+            <img src="../Assets/Icons/iconeConfig.png" alt="" />
+          </a>
+        </div>
+        <div class="back-button">
+          <button type="button" onclick="logout()">Sair</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="conteinerConfig">
+      <div class="conteiner1"></div>
+      <div class="conteiner2"></div>
+      <div class="conteiner3"></div>
+    </div>
+  </body>
+  <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-auth-compat.js"></script>
+  <script src="../firebase-init.js"></script>
+  <script src="./scripthome.js"></script>
+  <script src="../auth.guard.js"></script>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gerenciador</title>
+    <link rel="stylesheet" href="../produtos/styleCadastrosProdutos.css" />
+    <link
+    rel="shortcut icon"
+    type="imagex/png"
+    href="/frontend/Assets/iconeGuia/iconeGuia.ico"
+    />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="instituicao">
+        <img src="/frontend/Assets/Logo/logoPescador.png" alt="">
+      </div>
+
+      <div class="form">
+        <form id="form-usuario">
+          <div class="form-header">
+            <div class="title">
+              <h1>Cadastrar Produtos</h1>
+            </div>
+            <div class="return-button">
+              <button><a href="/frontend/home/homeinicial.html">Voltar</a></button>
+            </div>
+          </div>
+
+          <div class="input-group">
+            <div class="input-box-usuario">
+              <label for="firstName">Primeiro Nome</label>
+              <input
+                id="firstName"
+                type="text"
+                name="firstName"
+                placeholder="Digite seu primeiro nome"
+                required
+              />
+            </div>
+
+            <div class="input-box-usuario">
+              <label for="lastName">Sobrenome</label>
+              <input
+                id="lastName"
+                type="text"
+                name="lastName"
+                placeholder="Digite seu sobrenome"
+                required
+              />
+            </div>
+
+            <div class="input-box-usuario">
+              <label for="email">E-mail</label>
+              <input
+                id="email"
+                type="email"
+                name="email"
+                placeholder="Digite seu e-mail"
+                required
+              />
+            </div>
+
+            <div class="input-box-usuario">
+              <label for="number">Celular</label>
+              <input
+                id="number"
+                type="tel"
+                name="number"
+                placeholder="(xx) xxxx-xxxx"
+                required
+              />
+            </div>
+          </div>
+          <div class="cadastrar-button">
+            <button id="cadastrarUsuario"><a>Cadastrar</a></button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

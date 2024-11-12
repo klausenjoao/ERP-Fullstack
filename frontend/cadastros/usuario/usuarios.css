@@ -1,0 +1,122 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  button {
+    cursor: pointer;
+    align-items: center;
+    display: flex;
+  }
+  
+  .container {
+    width: 90%;
+    height: 80%;
+    background: white;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.212);
+  }
+  
+  .form-header {
+    min-height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: auto 12px;
+  }
+  
+  .form-header span::after {
+    content: '';
+    display: block;
+    width: 13rem;
+    height: 0.3rem;
+    background-color: #B9110C;
+    margin: 0 auto;
+    position: absolute;
+    border-radius: 10px;
+  }
+  
+  .form-header span {
+    font-weight: 900;
+    font-size: 20px;
+    word-break: break-all;
+  }
+  
+  #return {
+    font-size: 16px;
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    background-color: #B9110C;
+  }
+
+  #return:hover{
+    background-color: #CD0C0D;
+  }
+  
+  .divTable {
+    padding: 10px;
+    width: auto;
+    height: inherit;
+    overflow: auto;
+  }
+  
+  .divTable::-webkit-scrollbar {
+    width: 12px;
+    background-color: whitesmoke;
+  }
+  
+  .divTable::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: darkgray;
+  }
+  
+  table {
+    width: 100%;
+    border-spacing: 10px;
+    word-break: break-all;
+    border-collapse: collapse;
+  }
+  
+  thead {
+    background-color: whitesmoke;
+  }
+  
+  tr {
+    border-bottom: 1px solid rgb(238, 235, 235) !important;
+  }
+  
+  tbody tr td {
+    vertical-align: text-top;
+    padding: 6px;
+    max-width: 50px;
+  }
+  
+  thead tr th {
+    padding: 5px;
+    text-align: start;
+    margin-bottom: 50px;
+  }
+  
+  tbody tr {
+    margin-bottom: 50px;
+  }
+  
+  thead tr th.acao {
+    width: 100px !important;
+    text-align: center;
+  }
+  
+  tbody tr td.acao {
+    text-align: center;
+  }
