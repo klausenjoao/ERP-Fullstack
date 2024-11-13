@@ -26,7 +26,7 @@
       </div>
 
       <div class="form">
-        <form id="form-usuario">
+        <form id="form-produto">
           <div class="form-header">
             <div class="title">
               <h1>Cadastrar Produtos</h1>
@@ -37,55 +37,32 @@
           </div>
 
           <div class="input-group">
-            <div class="input-box-usuario">
-              <label for="firstName">Primeiro Nome</label>
+            <div class="input-box-produto">
+              <label for="titulo">Titulo</label>
               <input
-                id="firstName"
+                id="titulo"
                 type="text"
-                name="firstName"
-                placeholder="Digite seu primeiro nome"
-                required
+                name="titulo"
+                placeholder="Digite o titulo do produto"
               />
             </div>
 
-            <div class="input-box-usuario">
-              <label for="lastName">Sobrenome</label>
+            <div class="input-box-produto">
+              <label for="descricao">Descrição</label>
               <input
-                id="lastName"
+                id="descricao"
                 type="text"
-                name="lastName"
-                placeholder="Digite seu sobrenome"
-                required
-              />
-            </div>
-
-            <div class="input-box-usuario">
-              <label for="email">E-mail</label>
-              <input
-                id="email"
-                type="email"
-                name="email"
-                placeholder="Digite seu e-mail"
-                required
-              />
-            </div>
-
-            <div class="input-box-usuario">
-              <label for="number">Celular</label>
-              <input
-                id="number"
-                type="tel"
-                name="number"
-                placeholder="(xx) xxxx-xxxx"
-                required
+                name="descricao"
+                placeholder="Digite sua Descrição"
               />
             </div>
           </div>
           <div class="cadastrar-button">
-            <button id="cadastrarUsuario"><a>Cadastrar</a></button>
+            <button id="cadastrarProduto" onclick="addProduto()"><a>Cadastrar</a></button>
           </div>
         </form>
       </div>
     </div>
   </body>
+  <script src="./jsProdutos.js"></script>
 </html>

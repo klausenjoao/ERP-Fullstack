@@ -1,62 +1,84 @@
-const tbody = document.querySelector('tbody');
+const tbody = document.querySelector("tbody");
+const addForm = document.querySelector("form-produto");
 
-const fetchProdutos = async () =>{
-const response = await fetch('http://localhost:3333/produtos');
-const produtos = await response.json()
+const fetchProdutos = async () => {
+  const response = await fetch("http://localhost:3333/produtos");
+  const produtos = await response.json();
 
-return produtos;
-}
+  return produtos;
+};
 
-const createElement = (tag,  innerText = '', innerHTML='') =>{
-    const element = document.createElement(tag)
+const addProduto = async (event) => {
+  event.preventDefault();
 
-    if(innerText){
-        element.innerText = innerText;
-    }
+  const produto= {}
 
-    if(innerHTML){
-        element.innerHTML=innerHTML;
-    }
-    return element;
-}
+  await fetch("http://localhost:3333/produtos", { 
+    method: "post",
+    headers:{'content-type':'aplication/json'},
+    body:{titulo, }
+});
+};
 
-const createProdutos = (produto) =>{
+const createElement = (tag, innerText = "", innerHTML = "") => {
+  const element = document.createElement(tag);
 
-    const {id, titulo, descricao} = produto;
+  if (innerText) {
+    element.innerText = innerText;
+  }
 
-    const tr = document.createElement('tr');
-    const tdCodigo = createElement('td', id)
-    const tdTitulo= createElement('td', titulo)
-    const tdDescricao= createElement('td', descricao)
-    const tdActions = createElement('td')
+  if (innerHTML) {
+    element.innerHTML = innerHTML;
+  }
+  return element;
+};
 
-    const editButton = createElement('button', '','<span class="material-symbols-outlined">edit</span>')
-    const deleteButton = createElement('button', '','<span class="material-symbols-outlined">delete</span>')
+const createProdutos = (produto) => {
+  const { id, titulo, descricao } = produto;
 
-    editButton.classList.add('btnacao')
-    deleteButton.classList.add('btnacao')
-    tdActions.classList.add('acoes');
+  const tr = document.createElement("tr");
+  const tdCodigo = createElement("td", id);
+  const tdTitulo = createElement("td", titulo);
+  const tdDescricao = createElement("td", descricao);
+  const tdActions = createElement("td");
 
-    tdActions.appendChild(editButton)
-    tdActions.appendChild(deleteButton)
+  const editButton = createElement(
+    "button",
+    "",
+    '<span class="material-symbols-outlined">edit</span>'
+  );
+  const deleteButton = createElement(
+    "button",
+    "",
+    '<span class="material-symbols-outlined">delete</span>'
+  );
 
-    tr.appendChild(tdCodigo);
-    tr.appendChild(tdTitulo);
-    tr.appendChild(tdDescricao);
-    tr.appendChild(tdActions);
+  editButton.classList.add("btnacao");
+  deleteButton.classList.add("btnacao");
+  tdActions.classList.add("acoes");
 
-    tbody.appendChild(tr)
+  tdActions.appendChild(editButton);
+  tdActions.appendChild(deleteButton);
 
-    return tr;
-}
+  tr.appendChild(tdCodigo);
+  tr.appendChild(tdTitulo);
+  tr.appendChild(tdDescricao);
+  tr.appendChild(tdActions);
 
-loadProduto = async () =>{
-    const produto = await fetchProdutos();
+  tbody.appendChild(tr);
 
-    produto.forEach((produto) => {
-        const tr= createProdutos(produto)
-        tbody.appendChild(tr);
-    });
-}
+  return tr;
+};
+
+loadProduto = async () => {
+  const produto = await fetchProdutos();
+
+  produto.forEach((produto) => {
+    const tr = createProdutos(produto);
+    tbody.appendChild(tr);
+  });
+};
+
+addForm.addEventListener("submit", addProduto);
 
 loadProduto();

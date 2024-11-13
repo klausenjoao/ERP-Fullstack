@@ -86,14 +86,14 @@
     padding: 1rem 0rem;
  }
  
- .input-box, .input-box-usuario {
+.input-box-produto {
     display: flex;
     flex-direction: column;
     margin-bottom: 1.1rem;
  }
  
  
- .input-box input, .input-box-usuario input {
+.input-box-produto input {
     margin: 0.6rem 0;
     padding: 0.8rem 1.2rem;
     border: none;
@@ -102,23 +102,22 @@
     font-size: 0.8rem;
  }
  
- .input-box input:hover, .input-box-usuario input:hover  {
+.input-box-produto input:hover  {
     background-color: #eeeeee75;
  }
  
- .input-box input:focus-visible, .input-box-usuario input:focus-visible {
-    outline: 1px solid #406B5D;
+.input-box-produto input:focus-visible {
+    outline: 1px solid #CD0C0D;
  }
  
- .input-box label,
- .input-box-usuario label,
+ .input-box-produto label,
  .gender.title h6 {
     font-size: 0.75rem;
     font-weight: 600;
     color: #000000c0;
  }
  
- .input-box input::placeholder, .input-box-usuario input::placeholder {
+.input-box-produto input::placeholder {
     color: #000000be;
  }
  
