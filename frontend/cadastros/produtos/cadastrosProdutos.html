@@ -26,7 +26,7 @@
       </div>
 
       <div class="form">
-        <form id="form-produto">
+        <form class="form-produto">
           <div class="form-header">
             <div class="title">
               <h1>Cadastrar Produtos</h1>
@@ -40,7 +40,7 @@
             <div class="input-box-produto">
               <label for="titulo">Titulo</label>
               <input
-                id="titulo"
+                class="titulo"
                 type="text"
                 name="titulo"
                 placeholder="Digite o titulo do produto"
@@ -50,6 +50,7 @@
             <div class="input-box-produto">
               <label for="descricao">Descrição</label>
               <input
+                class="titulo"
                 id="descricao"
                 type="text"
                 name="descricao"
@@ -57,12 +58,10 @@
               />
             </div>
           </div>
-          <div class="cadastrar-button">
-            <button id="cadastrarProduto" onclick="addProduto()"><a>Cadastrar</a></button>
-          </div>
+            <button id="cadastrarProduto" type="submit"><a>Cadastrar</a></button>
         </form>
       </div>
     </div>
   </body>
-  <script src="./jsProdutos.js"></script>
+  <script src="./jsCadastroProdutos.js"></script>
 </html>

@@ -1,23 +1,10 @@
 const tbody = document.querySelector("tbody");
-const addForm = document.querySelector("form-produto");
 
 const fetchProdutos = async () => {
   const response = await fetch("http://localhost:3333/produtos");
   const produtos = await response.json();
 
   return produtos;
-};
-
-const addProduto = async (event) => {
-  event.preventDefault();
-
-  const produto= {}
-
-  await fetch("http://localhost:3333/produtos", { 
-    method: "post",
-    headers:{'content-type':'aplication/json'},
-    body:{titulo, }
-});
 };
 
 const createElement = (tag, innerText = "", innerHTML = "") => {
@@ -73,12 +60,14 @@ const createProdutos = (produto) => {
 loadProduto = async () => {
   const produto = await fetchProdutos();
 
+  tbody.innerHTML='';
+
   produto.forEach((produto) => {
     const tr = createProdutos(produto);
     tbody.appendChild(tr);
   });
 };
 
-addForm.addEventListener("submit", addProduto);
+//addForm.addEventListener("submit", addProduto);
 
 loadProduto();
