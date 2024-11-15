@@ -7,6 +7,13 @@ const fetchProdutos = async () => {
   return produtos;
 };
 
+const deleteProduto = async(id) =>{
+  await fetch(`http://localhost:3333/produtos/${id}`, {
+    method:'delete',
+  })
+  loadProduto();
+}
+
 const createElement = (tag, innerText = "", innerHTML = "") => {
   const element = document.createElement(tag);
 
@@ -42,6 +49,7 @@ const createProdutos = (produto) => {
 
   editButton.classList.add("btnacao");
   deleteButton.classList.add("btnacao");
+  deleteButton.addEventListener('click', () => deleteProduto(id))
   tdActions.classList.add("acoes");
 
   tdActions.appendChild(editButton);
