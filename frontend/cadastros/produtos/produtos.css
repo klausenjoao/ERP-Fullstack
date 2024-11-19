@@ -12,6 +12,12 @@
     align-items: center;
     justify-content: center;
   }
+
+  .botoes-header{
+    display: flex;
+    width: 150px;
+    justify-content: space-between;
+  }
   
   button {
     cursor: pointer;
@@ -33,7 +39,7 @@
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.212);
   }
   
-  .form-header {
+  .table-header {
     min-height: 70px;
     display: flex;
     align-items: center;
@@ -41,7 +47,7 @@
     margin: auto 12px;
   }
   
-  .form-header span::after {
+  .table-header span::after {
     content: '';
     display: block;
     width: 13rem;
@@ -52,7 +58,7 @@
     border-radius: 10px;
   }
   
-  .form-header span {
+  .table-header span {
     font-weight: 900;
     font-size: 20px;
     word-break: break-all;
@@ -130,4 +136,78 @@
     margin-right:15px ;
     color: white;
     padding: 5px;
+  }
+
+  .modal-cadastrar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+    background-color: white;
+    border-radius: 10px;
+    width: 50%;
+  }
+
+  .modal-container {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 999;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .modal-cadastrar label {
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  .modal-cadastrar input {
+    width: 100%;
+    outline: none;
+    padding: 5px 10px;
+    width: 100%;
+    margin-bottom: 20px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+  }
+  
+  .modal-cadastrar button {
+    margin: 10px auto;
+    border-radius: 20px;
+    padding: 5px 10px;
+    width: 25%;
+    border: none;
+    background-color: #406B5D;
+    color: white;
+    justify-content: center;
+  }
+  
+  .modal-cadastrar button:hover{
+    background-color: #6CA190;
+  }
+  
+  .active {
+    display: flex;
+  }
+  
+  .active .modal-cadastrar {
+    animation: modal .4s;
+  }
+
+  @keyframes modal {
+    from {
+      opacity: 0;
+      transform: translate3d(0, -60px, 0);
+    }
+  
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
   }

@@ -24,9 +24,12 @@
 
 <body>
     <div class="container">
-        <div class="form-header">
+        <div class="table-header">
             <span>Produtos cadastrados</span>
+            <div class="botoes-header">
+            <button id="return" onclick="openModal()">Inserir</i></button>
             <button onclick="window.location.href = '/frontend/home/homeinicial.html'" id="return" >Voltar</i></button>
+        </div>
         </div>
         <div class="divTable">
             <table id="tableProfessor">
@@ -42,11 +45,27 @@
                </tbody>
             </table>
         </div>
+
+        <div class="modal-container" id="modal-cadastrar">
+            <div class="modal-cadastrar">
+                <form class="form-produto">
+                    <label for="titulo">Titulo</label>
+                    <input type="text" name="titulo" class="titulo" placeholder="Digite o titulo do produto">
+
+                    <label for="descricao">Descrição</label>
+                    <input type="text" name="descricao" placeholder="Digite sua Descrição">
+
+                    <button id="btnSalvar" type="submit">Gravar</button>
+                    <button id="cancelar">Fechar</button>
+                </form>
+            </div>
+        </div>
     </div>
 </body>
+<!--
 <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-auth-compat.js"></script>
 <script src="../firebase-init.js"></script>
-<script src="../auth.guard.js"></script>
+<script src="../auth.guard.js"></script>-->
 <script src="./jsProdutos.js"></script>
 </html>

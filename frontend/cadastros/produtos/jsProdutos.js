@@ -1,3 +1,14 @@
+const openModal = () =>
+  document.getElementById("modal-cadastrar").classList.add("active");
+
+const closeModal = () => {
+  document.getElementById("modal-cadastrar").classList.remove("active");
+};
+
+const addForm = document.querySelector(".form-produto");
+
+const inputProduto = document.querySelector('.titulo') 
+
 const tbody = document.querySelector("tbody");
 
 const fetchProdutos = async () => {
@@ -6,6 +17,22 @@ const fetchProdutos = async () => {
 
   return produtos;
 };
+
+const addProduto = async (event) => {
+  event.preventDefault();
+
+  const produto= {titulo: inputProduto.value};
+  closeModal();
+  loadProduto();
+
+  await fetch("http://localhost:3333/produtos", { 
+    method: 'post',
+    headers:{'content-type':'application/json'},
+    body: JSON.stringify(produto)
+});
+};
+
+addForm.addEventListener("submit", addProduto);
 
 const deleteProduto = async(id) =>{
   await fetch(`http://localhost:3333/produtos/${id}`, {
@@ -50,6 +77,7 @@ const createProdutos = (produto) => {
   editButton.classList.add("btnacao");
   deleteButton.classList.add("btnacao");
   deleteButton.addEventListener('click', () => deleteProduto(id))
+  editButton.addEventListener('click', openModal)
   tdActions.classList.add("acoes");
 
   tdActions.appendChild(editButton);
@@ -75,7 +103,5 @@ loadProduto = async () => {
     tbody.appendChild(tr);
   });
 };
-
-//addForm.addEventListener("submit", addProduto);
 
 loadProduto();
