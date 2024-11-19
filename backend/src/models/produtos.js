@@ -6,11 +6,11 @@ const getAll = async () =>{
 };
 
 const createProdutos = async (produtos) =>{
-    const { titulo } = produtos;
+    const { titulo, descricao } = produtos;
 
     const query = 'INSERT INTO produtos(titulo, descricao) values (?, ?)';
 
-    const [createProdutos] = await connection.execute(query, [titulo, 'Bola de futebol']);
+    const [createProdutos] = await connection.execute(query, [titulo, descricao]);
 
     return {insertId:createProdutos.insertId};
 }

@@ -6,9 +6,8 @@ const closeModal = () => {
 };
 
 const addForm = document.querySelector(".form-produto");
-
+const inputDescricao = document.querySelector('.descricao')
 const inputProduto = document.querySelector('.titulo') 
-
 const tbody = document.querySelector("tbody");
 
 const fetchProdutos = async () => {
@@ -21,7 +20,7 @@ const fetchProdutos = async () => {
 const addProduto = async (event) => {
   event.preventDefault();
 
-  const produto= {titulo: inputProduto.value};
+  const produto= {titulo: inputProduto.value, descricao: inputDescricao.value};
   closeModal();
   loadProduto();
 
