@@ -23,9 +23,12 @@
 
 <body>
     <div class="container">
-        <div class="form-header">
+        <div class="table-header">
             <span>Usuários cadastrados</span>
+            <div class="botoes-header">
+            <button id="return" onclick="openModal()">Inserir</i></button>
             <button onclick="window.location.href = '/frontend/home/homeinicial.html'" id="return" >Voltar</i></button>
+            </div>
         </div>
         <div class="divTable">
             <table id="tableProfessor">
@@ -43,10 +46,32 @@
                 </tbody>
             </table>
         </div>
+        <div class="modal-container" id="modal-cadastrar">
+            <div class="modal-cadastrar">
+                <form class="form-produto">
+                    <label for="nome">Nome</label>
+                    <input type="text" name="nome" class="nome" placeholder="Digite o nome do usuário">
+
+                    <label for="login">Login</label>
+                    <input type="text" name="login" class="login" placeholder="Digite o login">
+
+                    <label for="senha">Senha</label>
+                    <input type="password" name="senha" class="senha" placeholder="Digite a senha">
+
+                    <label for="ativo">Ativo</label>
+                    <input type="checkbox" name="ativo" class="ativo">
+
+                    <button id="btnSalvar" type="submit">Gravar</button>
+                    <button id="cancelar">Fechar</button>
+                </form>
+            </div>
+        </div>
     </div>
 </body>
+<script src="./jsUsuario.js"></script>
+<!--
 <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-auth-compat.js"></script>
 <script src="../firebase-init.js"></script>
-<script src="../auth.guard.js"></script>
+<script src="../auth.guard.js"></script>-->
 </html>

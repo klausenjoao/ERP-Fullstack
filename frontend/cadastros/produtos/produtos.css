@@ -183,13 +183,13 @@
     padding: 5px 10px;
     width: 25%;
     border: none;
-    background-color: #406B5D;
+    background-color: #B9110C;
     color: white;
     justify-content: center;
   }
   
   .modal-cadastrar button:hover{
-    background-color: #6CA190;
+    background-color: #CD0C0D;
   }
   
   .active {
