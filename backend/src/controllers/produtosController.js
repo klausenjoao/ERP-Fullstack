@@ -2,7 +2,7 @@ const connection = require('../models/connection');
 const { connect } = require('../models/connection');
 const produtos= require('../models/produtos');
 
-const getAll = async (_request, response) =>{
+const getAll = async (request, response) =>{
     const produtostask = await produtos.getAll();
     return response.status(200).json(produtostask);
 };
