@@ -1,5 +1,4 @@
 const connection = require('../models/connection');
-const { connect } = require('../models/connection');
 const produtos= require('../models/produtos');
 
 const getAll = async (request, response) =>{
