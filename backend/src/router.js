@@ -1,6 +1,7 @@
 const express = require('express');
 const produtosController= require('./controllers/produtosController')
 const produtosMiddleware= require('./middlewares/produtosMiddleware')
+const usuariosMiddleware= require('./middlewares/usuariosMiddleware')
 const usuariosController = require('./controllers/usuariosController')
 
 const router = express.Router(); 
@@ -14,6 +15,7 @@ router.put('/produtos/:id', produtosMiddleware.validateDescricao,
     produtosController.updatedProdutos)
 
 //usuarios
-router.get('/usuarios', usuariosController.getAllUsuarios)
+router.get('/usuarios', usuariosController.getAllUsuarios);
+router.post('/usuarios', usuariosController.createUsuarios);
 
 module.exports = router;

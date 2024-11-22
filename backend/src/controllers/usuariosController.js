@@ -1,12 +1,17 @@
-const usuariosModel = require('../models/usuarios')
+const usuarios = require('../models/usuarios');
 
-const getAllUsuarios = async (request, response) => {
+const getAllUsuarios = async (_request, response) => {
 
-    const usuarios = await usuariosModel.getAllUsuariosModel()
-
-    return response.status(200).json(usuarios);
+    const usuariosModel = await usuarios.getAllUsuarios();
+    return response.status(200).json(usuariosModel);
 }
 
+const createUsuarios = async(request, response) =>{
+    const createdUsuarios = await usuarios.createUsuarios(request.body);
+    return response.status(201).json(createdUsuarios);
+};
+
 module.exports = {
-    getAllUsuarios
+    getAllUsuarios,
+    createUsuarios
 }
