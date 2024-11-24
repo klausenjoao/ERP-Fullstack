@@ -1,7 +1,7 @@
 const connection = require('./connection')
 
 const getAllUsuarios = async () =>{
-    const [usuarios] = await connection.execute('SELECT * FROM usuarios')
+    const [usuarios] = await connection.execute('SELECT*FROM usuarios')
     return usuarios;
 }
 

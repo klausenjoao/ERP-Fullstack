@@ -4,13 +4,13 @@ const openModal = () =>
   const closeModal = () => {
     document.getElementById("modal-cadastrar").classList.remove("active");
   };
-
-  const tbody = document.querySelector("tbody");
+    
   const addForm = document.querySelector(".form-usuarios");
   const inputNome = document.querySelector('.nome')
   const inputLogin = document.querySelector('.login')
   const inputSenha = document.querySelector('.senha')
   const inputAtivo = document.querySelector('.ativo')
+  const tbodyUsuarios = document.querySelector("tbody");
 
   const fetchUsuario = async () => {
     const response = await fetch("http://localhost:3333/usuarios");
@@ -34,7 +34,7 @@ const openModal = () =>
   });
   };
 
-  addForm.addEventListener("submit", addUsuarios);x
+  addForm.addEventListener("submit", addUsuarios);
 
 const createElement = (tag, innerText = "", innerHTML = "") => {
   const element = document.createElement(tag);
@@ -53,13 +53,13 @@ const createElement = (tag, innerText = "", innerHTML = "") => {
     const {usu_id, usu_nome, usu_login, usu_senha, usu_dataHoraCadastro, usu_ativo} = usuarios;
 
     const tr = document.createElement("tr");
-    const tdCodigo = document.createElement("td", usu_id);
-    const tdNome = document.createElement("td", usu_nome);
-    const tdLogin = document.createElement("td", usu_login);
-    const tdsenha = document.createElement("td", usu_senha)
-    const tdDataHoraCadastro= document.createElement("td", usu_dataHoraCadastro);
-    const tdAtivo = document.createElement("td", usu_ativo)
-    const tdActions = document.createElement("td");
+    const tdCodigo = createElement("td", usu_id);
+    const tdNome = createElement("td", usu_nome);
+    const tdLogin = createElement("td", usu_login);
+    const tdsenha = createElement("td", usu_senha)
+    const tdDataHoraCadastro= createElement("td", usu_dataHoraCadastro);
+    const tdAtivo = createElement("td", usu_ativo)
+    const tdActions = createElement("td");
 
     const editButton = createElement(
       "button",
@@ -89,7 +89,9 @@ const createElement = (tag, innerText = "", innerHTML = "") => {
   tr.appendChild(tdAtivo);
   tr.appendChild(tdActions);
 
-  tbody.appendChild(tr);
+  console.log(tr);
+
+  tbodyUsuarios.appendChild(tr);
 
   return tr;
   }
@@ -97,11 +99,11 @@ const createElement = (tag, innerText = "", innerHTML = "") => {
   loadUsuario = async () => {
     const usuarios = await fetchUsuario();
   
-    tbody.innerHTML='';
+    tbodyUsuarios.innerHTML='';
   
     usuarios.forEach((usuarios) => {
       const tr = createUsuario(usuarios);
-      tbody.appendChild(tr);
+      tbodyUsuarios.appendChild(tr);
     });
   };
   
