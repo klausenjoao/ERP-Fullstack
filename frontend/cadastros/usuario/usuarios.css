@@ -19,12 +19,6 @@
     justify-content: space-between;
   }
   
-  button {
-    cursor: pointer;
-    align-items: center;
-    display: flex;
-  }
-  
   .container {
     width: 90%;
     height: 80%;
@@ -105,7 +99,6 @@
   tbody tr td {
     vertical-align: text-top;
     padding: 6px;
-    max-width: 50px;
   }
   
   thead tr th {
@@ -187,6 +180,31 @@
   
   .active .modal-cadastrar {
     animation: modal .4s;
+  }
+
+  button {
+    cursor: pointer;
+    align-items: center;
+    display: flex;
+    background-color: #B9110C;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  button:hover{
+    background-color: #CD0C0D;
+  }
+
+  .acoes{
+    display: flex;
+    justify-content: space-between;
+    width: 100px;
+  }
+
+  .btnacao{
+    margin-right:15px ;
+    color: white;
+    padding: 5px;
   }
 
   @keyframes modal {
