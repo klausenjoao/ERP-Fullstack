@@ -85,6 +85,7 @@ const createElement = (tag, innerText = "", innerHTML = "") => {
   tr.appendChild(tdCodigo);
   tr.appendChild(tdNome);
   tr.appendChild(tdLogin);
+  tr.appendChild(tdsenha);
   tr.appendChild(tdDataHoraCadastro);
   tr.appendChild(tdAtivo);
   tr.appendChild(tdActions);
