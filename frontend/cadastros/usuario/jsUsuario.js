@@ -59,6 +59,9 @@ const createElement = (tag, innerText = "", innerHTML = "") => {
     const tdsenha = createElement("td", usu_senha)
     const tdDataHoraCadastro= createElement("td", usu_dataHoraCadastro);
     const tdAtivo = createElement("td", usu_ativo)
+    const checkbox = createElement("input");
+    checkbox.type = "checkbox";
+    tdAtivo.appendChild(checkbox);
     const tdActions = createElement("td");
 
     const editButton = createElement(
