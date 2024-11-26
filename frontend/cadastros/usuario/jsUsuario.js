@@ -5,7 +5,7 @@ const openModal = () =>
     document.getElementById("modal-cadastrar").classList.remove("active");
   };
     
-  const addForm = document.querySelector(".form-usuarios");
+  const addForm = document.querySelector(".form-usuarios .btnSalvar");
   const inputNome = document.querySelector('.nome')
   const inputLogin = document.querySelector('.login')
   const inputSenha = document.querySelector('.senha')
@@ -69,13 +69,17 @@ const formatDate = (dateFormatted) => {
     const tdCodigo = createElement("td", usu_id);
     const tdNome = createElement("td", usu_nome);
     const tdLogin = createElement("td", usu_login);
-    const tdsenha = createElement("td", usu_senha)
-
-
     const tdDataHoraCadastro = createElement("td", formatDate(usu_datahoracadastro));
     
+    //Senha
+    const tdsenha = createElement("td");
+    const exibicaoSenha = document.createElement("input");
+    exibicaoSenha.type = "password";
+    exibicaoSenha.value = usu_senha;
+    exibicaoSenha.readOnly = true;
+    tdsenha.appendChild(exibicaoSenha);
 
-    //checkbox
+    //Checkbox
     const tdAtivo = createElement("td")
     const checkbox = createElement("input");
     checkbox.type = "checkbox";
@@ -130,6 +134,6 @@ const formatDate = (dateFormatted) => {
     });
   };
   
-  addForm.addEventListener("submit", addUsuarios);
+  addForm.addEventListener("click", addUsuarios);
 
   loadUsuario();
