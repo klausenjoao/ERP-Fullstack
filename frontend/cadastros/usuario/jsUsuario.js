@@ -31,17 +31,17 @@ const openModal = () =>
   
     const usuarios= {usu_nome: inputNome.value, usu_login: inputLogin.value, 
       usu_senha: inputSenha.value, usu_ativo: inputAtivo.checked};
-    closeModal();
-    loadUsuario();
+
   
     await fetch("http://localhost:3333/usuarios", { 
       method: 'post',
       headers:{'content-type':'application/json'},
       body: JSON.stringify(usuarios)
   });
-  };
 
-  addForm.addEventListener("submit", addUsuarios);
+  closeModal();
+  loadUsuario();
+  };
 
 const createElement = (tag, innerText = "", innerHTML = "") => {
   const element = document.createElement(tag);
@@ -73,8 +73,6 @@ const formatDate = (dateFormatted) => {
 
 
     const tdDataHoraCadastro = createElement("td", formatDate(usu_datahoracadastro));
-
-    console.log("Valor de usu_dataHoraCadastro:", tdDataHoraCadastro);
     
 
     //checkbox
@@ -121,7 +119,7 @@ const formatDate = (dateFormatted) => {
   return tr;
   }
 
-  loadUsuario = async () => {
+  const loadUsuario = async () => {
     const usuarios = await fetchUsuario();
   
     tbodyUsuarios.innerHTML='';
@@ -132,4 +130,6 @@ const formatDate = (dateFormatted) => {
     });
   };
   
+  addForm.addEventListener("submit", addUsuarios);
+
   loadUsuario();

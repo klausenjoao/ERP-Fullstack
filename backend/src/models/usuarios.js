@@ -9,9 +9,6 @@ const createUsuarios = async (usuarios) =>{
     const {usu_nome, usu_login, usu_senha, usu_ativo} = usuarios;
     const dateFormatted = new Date().toISOString().slice(0, 19).replace('T', ' ');
 
-    console.log("Data formatada para inserção no banco:", dateFormatted);
-
-
     const query = 'INSERT INTO usuarios(usu_nome, usu_login, usu_senha, usu_ativo, usu_datahoracadastro) values (?, ?, ?, ?, ?)';
 
     const [createUsuarios] = await connection.execute(query, [usu_nome, usu_login, usu_senha, usu_ativo, dateFormatted]);

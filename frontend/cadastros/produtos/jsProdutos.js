@@ -21,14 +21,16 @@ const addProduto = async (event) => {
   event.preventDefault();
 
   const produto= {titulo: inputProduto.value, descricao: inputDescricao.value};
-  closeModal();
-  loadProduto();
+
 
   await fetch("http://localhost:3333/produtos", { 
     method: 'post',
     headers:{'content-type':'application/json'},
     body: JSON.stringify(produto)
 });
+
+closeModal();
+loadProduto();
 };
 
 addForm.addEventListener("submit", addProduto);
@@ -92,7 +94,7 @@ const createProdutos = (produto) => {
   return tr;
 };
 
-loadProduto = async () => {
+const loadProduto = async () => {
   const produto = await fetchProdutos();
 
   tbody.innerHTML='';
