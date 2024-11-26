@@ -9,7 +9,7 @@ const openModal = () =>
   const inputNome = document.querySelector('.nome')
   const inputLogin = document.querySelector('.login')
   const inputSenha = document.querySelector('.senha')
-  const inputAtivo = document.querySelector('.ativo')
+  const inputAtivo = document.querySelector('.ativo', )
   const tbodyUsuarios = document.querySelector("tbody");
 
   const fetchUsuario = async () => {
@@ -30,7 +30,7 @@ const openModal = () =>
     event.preventDefault();
   
     const usuarios= {usu_nome: inputNome.value, usu_login: inputLogin.value, 
-      usu_senha: inputSenha.value, usu_ativo: inputAtivo.value};
+      usu_senha: inputSenha.value, usu_ativo: inputAtivo.checked};
     closeModal();
     loadUsuario();
   
