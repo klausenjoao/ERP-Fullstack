@@ -19,6 +19,13 @@ const openModal = () =>
     return usuarios;
   };
 
+  const deleteUsuarios = async(usu_id) =>{
+    await fetch(`http://localhost:3333/usuarios/${usu_id}`, {
+      method:'delete',
+    })
+    loadUsuario();
+  }
+
   const addUsuarios = async (event) => {
     event.preventDefault();
   
@@ -49,19 +56,34 @@ const createElement = (tag, innerText = "", innerHTML = "") => {
   return element;
 };
 
+const formatDate = (dateFormatted) => {
+  const options = { dateStyle: 'long', timeStyle: 'short' };
+  const date = new Date(dateFormatted).toLocaleString('pt-br', options);
+  return date;
+}
+
   const createUsuario = (usuarios) =>{
-    const {usu_id, usu_nome, usu_login, usu_senha, usu_dataHoraCadastro, usu_ativo} = usuarios;
+    const {usu_id, usu_nome, usu_login, usu_senha, usu_datahoracadastro, usu_ativo} = usuarios;
 
     const tr = document.createElement("tr");
     const tdCodigo = createElement("td", usu_id);
     const tdNome = createElement("td", usu_nome);
     const tdLogin = createElement("td", usu_login);
     const tdsenha = createElement("td", usu_senha)
-    const tdDataHoraCadastro= createElement("td", usu_dataHoraCadastro);
-    const tdAtivo = createElement("td", usu_ativo)
+
+
+    const tdDataHoraCadastro = createElement("td", formatDate(usu_datahoracadastro));
+
+    console.log("Valor de usu_dataHoraCadastro:", tdDataHoraCadastro);
+    
+
+    //checkbox
+    const tdAtivo = createElement("td")
     const checkbox = createElement("input");
     checkbox.type = "checkbox";
+    checkbox.checked = usu_ativo === 1;
     tdAtivo.appendChild(checkbox);
+
     const tdActions = createElement("td");
 
     const editButton = createElement(
@@ -77,7 +99,7 @@ const createElement = (tag, innerText = "", innerHTML = "") => {
 
     editButton.classList.add("btnacao");
     deleteButton.classList.add("btnacao");
-    //deleteButton.addEventListener('click', () => deleteProduto(id))
+    deleteButton.addEventListener('click', () => deleteUsuarios(usu_id))
     editButton.addEventListener('click', openModal)
     tdActions.classList.add("acoes");
 
@@ -93,7 +115,6 @@ const createElement = (tag, innerText = "", innerHTML = "") => {
   tr.appendChild(tdAtivo);
   tr.appendChild(tdActions);
 
-  console.log(tr);
 
   tbodyUsuarios.appendChild(tr);
 

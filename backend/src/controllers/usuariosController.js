@@ -10,7 +10,14 @@ const createUsuarios = async(request, response) =>{
     return response.status(201).json(createdUsuarios);
 };
 
+const deleteUsuarios = async(request, response)=>{
+    const {usu_id} = request.params;
+    await usuarios.deleteUsuarios(usu_id);
+    return response.status(204).json();
+}
+
 module.exports = {
     getAllUsuarios,
-    createUsuarios
+    createUsuarios,
+    deleteUsuarios
 }

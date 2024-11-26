@@ -17,5 +17,6 @@ router.put('/produtos/:id', produtosMiddleware.validateDescricao,
 //usuarios
 router.get('/usuarios', usuariosController.getAllUsuarios);
 router.post('/usuarios', usuariosController.createUsuarios);
+router.delete('/usuarios/:usu_id', usuariosController.deleteUsuarios);
 
 module.exports = router;
