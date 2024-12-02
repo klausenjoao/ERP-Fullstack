@@ -16,6 +16,11 @@ const createUsuarios = async (usuarios) =>{
     return {insertId:createUsuarios.insertId};
 }
 
+const getlUsuarioEspecifico = async (usu_id) =>{
+    const [getUsuario] = await connection.execute('SELECT*FROM usuarios where usu_id=?',[usu_id])
+    return getUsuario
+}
+
 const deleteUsuarios = async (usu_id) =>{
     const removedUsuarios = await connection.execute('DELETE from usuarios where usu_id=?',[usu_id])
     return removedUsuarios
@@ -24,5 +29,6 @@ const deleteUsuarios = async (usu_id) =>{
 module.exports ={
     getAllUsuarios,
     createUsuarios,
+    getlUsuarioEspecifico,
     deleteUsuarios
 }

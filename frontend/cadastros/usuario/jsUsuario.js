@@ -9,8 +9,12 @@ const openModal = () =>
   const inputNome = document.querySelector('.nome')
   const inputLogin = document.querySelector('.login')
   const inputSenha = document.querySelector('.senha')
-  const inputAtivo = document.querySelector('.ativo', )
+  const inputAtivo = document.querySelector('.ativo')
   const tbodyUsuarios = document.querySelector("tbody");
+  const inputNomeEdicao = document.querySelector('.nome-modal')
+  const inputLoginEdicao = document.querySelector('.login-modal')
+  const inputSenhaEdicao = document.querySelector('.senha-modal')
+  const inputAtivoEdicao = document.querySelector('.ativo-modal')
 
   const fetchUsuario = async () => {
     const response = await fetch("http://localhost:3333/usuarios");
@@ -24,6 +28,33 @@ const openModal = () =>
       method:'delete',
     })
     loadUsuario();
+  }
+
+  const editUsuario = async (usu_id) =>{
+    const getUsuario =  await fetch(`http://localhost:3333/usuarios/${usu_id}`)
+    console.log(getUsuario)
+    const [usuario] = await getUsuario.json();
+    console.log(usuario)
+
+    inputNomeEdicao.value = usuario.usu_nome;
+    inputLoginEdicao.value = usuario.usu_login;
+    inputSenhaEdicao.value = usuario.usu_senha;
+    inputAtivoEdicao.checked = usuario.usu_ativo === 1;
+
+    console.log(editUsuario)
+    
+    openModal()
+  }
+
+  const updateUsuarios = async (usu_nome, usu_login, usu_senha, usu_ativo) =>{
+
+    await fetch(`http://localhost:3333/usuarios/${usu_id}`,{
+    method:'put',
+    headers:{'content-type':'application/json'},
+    body: JSON.stringify({usu_nome, usu_login, usu_senha, usu_ativo})
+  })
+  loadUsuario();
+  closeModal();
   }
 
   const addUsuarios = async (event) => {
@@ -101,8 +132,9 @@ const formatDate = (dateFormatted) => {
 
     editButton.classList.add("btnacao");
     deleteButton.classList.add("btnacao");
+    editButton.addEventListener('click', () => editUsuario(usu_id));
+    exibicaoSenha.classList.add("input-senha")
     deleteButton.addEventListener('click', () => deleteUsuarios(usu_id))
-    editButton.addEventListener('click', openModal)
     tdActions.classList.add("acoes");
 
 
