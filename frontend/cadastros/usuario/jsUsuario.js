@@ -11,10 +11,6 @@ const openModal = () =>
   const inputSenha = document.querySelector('.senha')
   const inputAtivo = document.querySelector('.ativo')
   const tbodyUsuarios = document.querySelector("tbody");
-  const inputNomeEdicao = document.querySelector('.nome-modal')
-  const inputLoginEdicao = document.querySelector('.login-modal')
-  const inputSenhaEdicao = document.querySelector('.senha-modal')
-  const inputAtivoEdicao = document.querySelector('.ativo-modal')
 
   const fetchUsuario = async () => {
     const response = await fetch("http://localhost:3333/usuarios");
@@ -36,10 +32,10 @@ const openModal = () =>
     const [usuario] = await getUsuario.json();
     console.log(usuario)
 
-    inputNomeEdicao.value = usuario.usu_nome;
-    inputLoginEdicao.value = usuario.usu_login;
-    inputSenhaEdicao.value = usuario.usu_senha;
-    inputAtivoEdicao.checked = usuario.usu_ativo === 1;
+    inputNome.value = usuario.usu_nome;
+    inputLogin.value = usuario.usu_login;
+    inputSenha.value = usuario.usu_senha;
+    inputAtivo.checked = usuario.usu_ativo === 1;
 
     console.log(editUsuario)
     
