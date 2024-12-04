@@ -1,6 +1,12 @@
-const openModal = () =>
+const openModal = () =>{
     document.getElementById("modal-cadastrar").classList.add("active");
-  
+    document.querySelector('.btnSalvarAlteracoes').style.display='none'
+  }
+  const openModalEdit = () =>{
+    document.getElementById("modal-cadastrar").classList.add("active");
+    document.querySelector('.btnSalvar').style.display='none'
+  }
+
   const closeModal = () => {
     document.getElementById("modal-cadastrar").classList.remove("active");
   };
@@ -12,6 +18,7 @@ const openModal = () =>
   const inputAtivo = document.querySelector('.ativo')
   const tbodyUsuarios = document.querySelector("tbody");
 
+  //ROTA QUE TRAZ OS USUARIOS
   const fetchUsuario = async () => {
     const response = await fetch("http://localhost:3333/usuarios");
     const usuarios = await response.json();
@@ -19,6 +26,7 @@ const openModal = () =>
     return usuarios;
   };
 
+  //DELETA O USUARIO BASEADO NO ID
   const deleteUsuarios = async(usu_id) =>{
     await fetch(`http://localhost:3333/usuarios/${usu_id}`, {
       method:'delete',
@@ -26,6 +34,7 @@ const openModal = () =>
     loadUsuario();
   }
 
+  //PUXA AS INFORMAÇOES DO USUARIO BASEADO NO ID
   const editUsuario = async (usu_id) =>{
     const getUsuario =  await fetch(`http://localhost:3333/usuarios/${usu_id}`)
     console.log(getUsuario)
@@ -39,7 +48,7 @@ const openModal = () =>
 
     console.log(editUsuario)
     
-    openModal()
+    openModalEdit()
   }
 
   const updateUsuarios = async (usu_nome, usu_login, usu_senha, usu_ativo) =>{
@@ -53,6 +62,7 @@ const openModal = () =>
   closeModal();
   }
 
+//ADICIONA O USUARIO NO BANCO
   const addUsuarios = async (event) => {
     event.preventDefault();
   
