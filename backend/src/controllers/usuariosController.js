@@ -22,9 +22,17 @@ const deleteUsuarios = async(request, response)=>{
     return response.status(204).json();
 }
 
+const updatedUsuario = async(request, response)=>{
+    const {usu_id} = request.params;
+
+    await usuarios.updateUsuario(usu_id, request.body);
+    return response.status(204).json();
+}
+
 module.exports = {
     getAllUsuarios,
     createUsuarios,
     getUsuariosEspecifico,
-    deleteUsuarios
+    deleteUsuarios,
+    updatedUsuario
 }

@@ -26,9 +26,19 @@ const deleteUsuarios = async (usu_id) =>{
     return removedUsuarios
 }
 
+const updateUsuario = async(usu_id, usuarios)=>{
+    const {usu_nome, usu_login, usu_senha, usu_ativo}= usuarios;
+
+    const query = 'UPDATE usuarios SET usu_nome=?, usu_login=?, usu_senha=?, usu_ativo=? WHERE usu_id=?';
+
+    const updateUsuario = await connection.execute(query, [usu_nome, usu_login, usu_senha, usu_ativo, usu_id]);
+    return updateUsuario;
+}
+
 module.exports ={
     getAllUsuarios,
     createUsuarios,
     getlUsuarioEspecifico,
-    deleteUsuarios
+    deleteUsuarios,
+    updateUsuario
 }

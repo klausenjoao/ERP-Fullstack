@@ -4,7 +4,9 @@ const openModal = () =>{
   }
   const openModalEdit = () =>{
     document.getElementById("modal-cadastrar").classList.add("active");
-    document.querySelector('.btnSalvar').style.display='none'
+    document.querySelector('.btnSalvar').style.display='none';
+    document.querySelector('.user-id').style.pointerEvents='none'
+    document.querySelector('.user-id-label').style.pointerEvents='none'
   }
 
   const closeModal = () => {
@@ -12,6 +14,8 @@ const openModal = () =>{
   };
     
   const addForm = document.querySelector(".form-usuarios .btnSalvar");
+  const editForm = document.querySelector(".form-usuarios .btnSalvarAlteracoes");
+  const inputId= document.querySelector('.user-id')
   const inputNome = document.querySelector('.nome')
   const inputLogin = document.querySelector('.login')
   const inputSenha = document.querySelector('.senha')
@@ -37,10 +41,9 @@ const openModal = () =>{
   //PUXA AS INFORMAÇOES DO USUARIO BASEADO NO ID
   const editUsuario = async (usu_id) =>{
     const getUsuario =  await fetch(`http://localhost:3333/usuarios/${usu_id}`)
-    console.log(getUsuario)
     const [usuario] = await getUsuario.json();
-    console.log(usuario)
 
+    inputId.value = usuario.usu_id;
     inputNome.value = usuario.usu_nome;
     inputLogin.value = usuario.usu_login;
     inputSenha.value = usuario.usu_senha;
@@ -51,13 +54,23 @@ const openModal = () =>{
     openModalEdit()
   }
 
-  const updateUsuarios = async (usu_nome, usu_login, usu_senha, usu_ativo) =>{
+  const updateUsuarios = async (event) =>{
+    event.preventDefault();
 
-    await fetch(`http://localhost:3333/usuarios/${usu_id}`,{
+  const usu_id = inputId.value; 
+  const usu_nome = inputNome.value;
+  const usu_login = inputLogin.value;
+  const usu_senha = inputSenha.value;
+  const usu_ativo = inputAtivo.checked ? 1 : 0;
+
+  const response = await fetch(`http://localhost:3333/usuarios/${usu_id}`,{
     method:'put',
     headers:{'content-type':'application/json'},
     body: JSON.stringify({usu_nome, usu_login, usu_senha, usu_ativo})
   })
+
+  if (!response.ok) throw new Error("Erro ao atualizar o usuário");
+
   loadUsuario();
   closeModal();
   }
@@ -173,5 +186,7 @@ const formatDate = (dateFormatted) => {
   };
   
   addForm.addEventListener("click", addUsuarios);
+  editForm.addEventListener("click", updateUsuarios);
+
 
   loadUsuario();

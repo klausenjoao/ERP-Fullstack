@@ -5,6 +5,11 @@ const getAll = async () =>{
     return produtos;
 };
 
+const getProdutoEspecifico = async (id) =>{
+    const [getProduto] = await connection.execute('SELECT*FROM produtos where id=?',[id])
+    return getProduto
+}
+
 const createProdutos = async (produtos) =>{
     const { titulo, descricao } = produtos;
 
@@ -34,5 +39,6 @@ module.exports = {
     getAll,
     createProdutos,
     deleteProdutos,
-    updateProdutos
+    updateProdutos,
+    getProdutoEspecifico
 };

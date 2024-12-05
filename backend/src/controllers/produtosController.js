@@ -1,10 +1,17 @@
+const { request } = require('express');
 const connection = require('../models/connection');
 const produtos= require('../models/produtos');
 
 const getAll = async (request, response) =>{
-    const produtostask = await produtos.getAll();
-    return response.status(200).json(produtostask);
+    const produtos = await produtos.getAll();
+    return response.status(200).json(produtos);
 };
+
+const getProdutoEspecifico = async (request, response) =>{
+    const {id} = request.params;
+    const produtoEspecifico = await produtos.getProdutoEspecifico(id);
+    return response.status(200).json(produtoEspecifico);
+}
 
 const createProdutos = async(request, response) =>{
     const createdProdutos = await produtos.createProdutos(request.body);
@@ -28,5 +35,6 @@ module.exports={
     getAll,
     createProdutos,
     deleteProdutos,
-    updatedProdutos
+    updatedProdutos,
+    getProdutoEspecifico
 };
