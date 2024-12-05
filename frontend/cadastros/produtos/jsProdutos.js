@@ -1,5 +1,14 @@
-const openModal = () =>
+const openModal = () =>{
   document.getElementById("modal-cadastrar").classList.add("active");
+  document.querySelector('.btnSalvarAlteracoes').style.display='none'
+}
+
+  const openModalEdit = () =>{
+    document.getElementById("modal-cadastrar").classList.add("active");
+    document.querySelector('.btnSalvar').style.display='none';
+    document.querySelector('.produto-id').style.pointerEvents='none'
+    document.querySelector('.produto-id-label').style.pointerEvents='none'
+  }
 
 const closeModal = () => {
   document.getElementById("modal-cadastrar").classList.remove("active");
@@ -78,7 +87,7 @@ const createProdutos = (produto) => {
   editButton.classList.add("btnacao");
   deleteButton.classList.add("btnacao");
   deleteButton.addEventListener('click', () => deleteProduto(id))
-  editButton.addEventListener('click', openModal)
+  editButton.addEventListener('click', openModalEdit)
   tdActions.classList.add("acoes");
 
   tdActions.appendChild(editButton);

@@ -3,8 +3,8 @@ const connection = require('../models/connection');
 const produtos= require('../models/produtos');
 
 const getAll = async (request, response) =>{
-    const produtos = await produtos.getAll();
-    return response.status(200).json(produtos);
+    const todospProdutos = await produtos.getAll();
+    return response.status(200).json(todospProdutos);
 };
 
 const getProdutoEspecifico = async (request, response) =>{

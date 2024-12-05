@@ -49,15 +49,20 @@
         <div class="modal-container" id="modal-cadastrar">
             <div class="modal-cadastrar">
                 <form class="form-produto">
+
+                    <label for="userProduto" class="produto-id-label">ID</label>
+                    <input type="text" id="produtoId" name="id" class="produto-id" placeholder="ID do produto">
+
                     <label for="titulo">Titulo</label>
                     <input type="text" name="titulo" class="titulo" placeholder="Digite o titulo do produto">
 
                     <label for="descricao">Descrição</label>
                     <input type="text" name="descricao" class="descricao" placeholder="Digite sua Descrição">
 
-                    <button id="btnSalvar" type="submit">Gravar</button>
-                </form>
+                    <button class="btnSalvar" type="submit">Gravar</button>
+                    <button class="btnSalvarAlteracoes" type="submit">Gravar Alterações</button>
                     <button id="cancelar" onclick="closeModal()">Fechar</button>
+                </form>
             </div>
         </div>
     </div>
