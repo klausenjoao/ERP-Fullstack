@@ -28,7 +28,7 @@ const tbodyEntradaSaida = document.querySelector("tbody");
   };
 
   const createEntradaSaida = (entradaSaida) =>{
-    const {mov_id, mov_tipo, mov_data, mov_quantidade, mov_valortotal} = entradaSaida;
+    const {mov_id, mov_tipo, mov_data, quantidade_itens, usu_nome} = entradaSaida;
 
     const tr = document.createElement("tr");
     const tdCodigo = createElement("td", mov_id);
@@ -40,14 +40,14 @@ const tbodyEntradaSaida = document.querySelector("tbody");
   }
     const tdTipo = createElement("td", mov_tipo);
     const tdDataHoraCadastro = createElement("td", formatDate(mov_data));
-    const tdQuantidade = createElement("td", mov_quantidade);
-    const tdValorTotal = createElement("td", mov_valortotal)
+    const tdQuantidade = createElement("td", quantidade_itens);
+    const tdUsuarioNome = createElement("td", usu_nome)
 
   tr.appendChild(tdCodigo);
   tr.appendChild(tdTipo);
   tr.appendChild(tdDataHoraCadastro);
   tr.appendChild(tdQuantidade);
-  tr.appendChild(tdValorTotal);
+  tr.appendChild(tdUsuarioNome);
 
   tbodyEntradaSaida.appendChild(tr);
 

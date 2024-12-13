@@ -7,7 +7,21 @@ const getAllEntradasSaidas = async (request, response) =>{
     return response.status(200).json(todasEntradasSaidas);
 };
 
+const getAllEntradasSaidasEspecifico = async (request, response) =>{
+    const {mov_id} = request.params;
+    const todasEntradasSaidas = await entradaSaida.getAllEntradasSaidasEspecifico(mov_id);
+    return response.status(200).json(todasEntradasSaidas);
+};
+
+const getAllProdutosEntradasSaidas = async (request, response) =>{
+    const {mov_id} = request.params;
+    const produtosEntradasSaidas = await entradaSaida.getAllProdutosEntradasSaidas(mov_id);
+    return response.status(200).json(produtosEntradasSaidas);
+
+}
 
 module.exports = {
-    getAllEntradasSaidas
+    getAllEntradasSaidas,
+    getAllEntradasSaidasEspecifico,
+    getAllProdutosEntradasSaidas
 }
