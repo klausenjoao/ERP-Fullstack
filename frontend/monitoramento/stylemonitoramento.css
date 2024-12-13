@@ -37,7 +37,7 @@
   .form-header span::after {
     content: '';
     display: block;
-    width: 24rem;
+    width: 20rem;
     height: 0.3rem;
     background-color: #B9110C;
     margin: 0 auto;
