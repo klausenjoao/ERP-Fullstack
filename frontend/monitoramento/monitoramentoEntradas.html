@@ -24,19 +24,18 @@
 <body>
     <div class="container">
         <div class="form-header">
-            <span>Monitoramento Associados mensalistas</span>
+            <span>Monitoramento Entradas e Saídas</span>
             <button onclick="window.location.href = '../home/homeinicial.html'" id="return" >Voltar</i></button>
         </div>
         <div class="divTable">
-            <table id="tableProfessor">
+            <table id="tableEntradaSaidas">
                 <thead>
                     <tr>
                         <th>Codigo</th>
-                        <th>Nome</th>
-                        <th>Sobrenome</th>
-                        <th>Email</th>
-                        <th>Telefone</th>
-                        <th>Ações</th>
+                        <th>Tipo</th>
+                        <th>Data</th>
+                        <th>Quantidade</th>
+                        <th>Valor Total</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -45,6 +44,7 @@
         </div>
     </div>
 </body>
+<script src="./jsEntradaSaida.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-auth-compat.js"></script>
 <script src="../firebase-init.js"></script>
