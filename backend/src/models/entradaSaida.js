@@ -15,10 +15,16 @@ const getAllEntradasSaidasEspecifico = async (mov_id) =>{
 }
 
 const getAllProdutosEntradasSaidas = async (mov_id) =>{
-    const [getProdutosEntadasSaidas] = await connection.execute(`SELECT*from movimentacao_item
+    const [getProdutosEntadasSaidas] = await connection.execute(`
+        SELECT
+        id, titulo,
+        COALESCE(COUNT(moi_prod_id), 0) AS quantidade_produtos
+        from movimentacao_item
         INNER join movimentacaoAlmoxarifado on moi_mov_id=mov_id
         INNER JOIN produtos on moi_prod_id=id
-        where mov_id=?`, [mov_id])
+        where mov_id=?
+        GROUP BY moi_prod_id;
+        `, [mov_id])
         return getProdutosEntadasSaidas;
 }
 
