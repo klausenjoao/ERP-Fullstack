@@ -32,7 +32,17 @@ const tbodyEntradaSaida = document.querySelector("tbody");
 
     const tr = document.createElement("tr");
     const tdCodigo = createElement("td", mov_id);
-      // Define a cor da linha com base no tipo de movimento
+
+    const tdActions = createElement("td");
+
+    const editButton = createElement(
+      "button",
+      "",
+      '<span class="material-symbols-outlined">edit</span>'
+    );
+
+
+  // Define a cor da linha com base no tipo de movimento
   if (mov_tipo.toLowerCase() === "entrada") {
     tr.style.backgroundColor = "#d4f8d4"; // Verde claro
   } else if (mov_tipo.toLowerCase() === "saida") {
@@ -43,11 +53,16 @@ const tbodyEntradaSaida = document.querySelector("tbody");
     const tdQuantidade = createElement("td", quantidade_itens);
     const tdUsuarioNome = createElement("td", usu_nome)
 
+  editButton.classList.add("btnacao");
+  tdActions.classList.add("acoes");
+
+  tdActions.appendChild(editButton);
   tr.appendChild(tdCodigo);
   tr.appendChild(tdTipo);
   tr.appendChild(tdDataHoraCadastro);
   tr.appendChild(tdQuantidade);
   tr.appendChild(tdUsuarioNome);
+  tr.appendChild(tdActions);
 
   tbodyEntradaSaida.appendChild(tr);
 

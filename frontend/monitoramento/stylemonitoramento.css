@@ -33,11 +33,24 @@
     justify-content: space-between;
     margin: auto 12px;
   }
+
+  .acoes{
+    display: flex;
+    justify-content: space-between;
+    width: 100px;
+  }
   
   .btnacao{
     margin-right:15px ;
     color: white;
     padding: 5px;
+    background-color: #B9110C;
+    border: none;
+    border-radius: 5px;
+  }
+
+  .btnacao:hover{
+    background-color: #CD0C0D;
   }
 
   .form-header span::after {
