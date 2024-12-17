@@ -7,7 +7,10 @@ const closeModal = () => {
   document.getElementById("modal-cadastrar").classList.remove("active");
 };
 
+console.log(closeModal)
+
 const tbodyEntradaSaida = document.querySelector("tbody");
+const tbodyProdutosEntradaSaida = document.getElementById("tbody-modal");
   
   //ROTA QUE TRAZ OS USUARIOS
   const fetchEntradasSaidas = async () => {
@@ -16,6 +19,14 @@ const tbodyEntradaSaida = document.querySelector("tbody");
   
     return entradaSaida;
   };
+
+  //ROTA QUE TRAZ OS PRODUTOS DA MOVIMENTAÇÃO
+const fetchProdutosEntradasSaidas = async (mov_id) => {
+  const response = await fetch(`http://localhost:3333/entradasaida/produtos/${mov_id}`);
+  const entradaSaida = await response.json();
+
+  return entradaSaida;
+};
 
   const formatDate = (dateFormatted) => {
     const options = { dateStyle: 'long', timeStyle: 'short' };
@@ -64,7 +75,18 @@ const tbodyEntradaSaida = document.querySelector("tbody");
 
   editButton.classList.add("btnacao");
   tdActions.classList.add("acoes");
-  editButton.addEventListener('click', () => openModal());
+  //editButton.addEventListener('click', () => openModal());
+  editButton.addEventListener('click', async () => {
+    const produtosentradaSaida = await fetchProdutosEntradasSaidas(mov_id);
+  
+    tbodyProdutosEntradaSaida.innerHTML = ""; // Limpa a tabela
+  
+    produtosentradaSaida.forEach((produto) => {
+      createProdutosEntradaSaida(produto, mov_id);
+    });
+  
+    openModal(); // Abre o modal após carregar os produtos
+  });
 
   tdActions.appendChild(editButton);
   tr.appendChild(tdCodigo);
@@ -78,6 +100,24 @@ const tbodyEntradaSaida = document.querySelector("tbody");
 
   return tr;
   }
+
+  const createProdutosEntradaSaida = async (produtosentradaSaida, mov_id) => {
+    openModal();
+    const { id, titulo, quantidade_produtos } = produtosentradaSaida;
+
+  const tr = document.createElement("tr");
+  const tdCodigo = createElement("td", id);
+  const tdTitulo = createElement("td", titulo);
+  const tdQuantidade = createElement("td", quantidade_produtos);
+
+  tr.appendChild(tdCodigo);
+  tr.appendChild(tdTitulo);
+  tr.appendChild(tdQuantidade);
+
+  tbodyProdutosEntradaSaida.appendChild(tr);
+
+  return tr;
+};
 
   const loadEntradaSaida = async () => {
     const entradaSaida = await fetchEntradasSaidas();
