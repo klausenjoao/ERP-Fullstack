@@ -34,6 +34,12 @@
     margin: auto 12px;
   }
   
+  .btnacao{
+    margin-right:15px ;
+    color: white;
+    padding: 5px;
+  }
+
   .form-header span::after {
     content: '';
     display: block;
