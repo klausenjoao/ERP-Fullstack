@@ -1,5 +1,3 @@
-import { fetchProdutos } from "../cadastros/produtos/jsProdutos";
-
 const openModal = () =>{
   document.getElementById("modal-cadastrar").classList.add("active");
   document.querySelector('.btnSalvarAlteracoes').style.display='none'
