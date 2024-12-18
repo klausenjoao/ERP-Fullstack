@@ -1,16 +1,22 @@
+import { fetchProdutos } from "../cadastros/produtos/jsProdutos";
+
 const openModal = () =>{
   document.getElementById("modal-cadastrar").classList.add("active");
   document.querySelector('.btnSalvarAlteracoes').style.display='none'
 }
 
+const openModalInserir = () =>{
+  document.getElementById("modal-inserir").classList.add("active");
+}
+
 const closeModal = () => {
   document.getElementById("modal-cadastrar").classList.remove("active");
+  document.getElementById("modal-inserir").classList.remove("active");
 };
-
-console.log(closeModal)
 
 const tbodyEntradaSaida = document.querySelector("tbody");
 const tbodyProdutosEntradaSaida = document.getElementById("tbody-modal");
+const tbodyInserir = document.getElementById("tbody-modal-inserir")
   
   //ROTA QUE TRAZ OS USUARIOS
   const fetchEntradasSaidas = async () => {
@@ -75,7 +81,6 @@ const fetchProdutosEntradasSaidas = async (mov_id) => {
 
   editButton.classList.add("btnacao");
   tdActions.classList.add("acoes");
-  //editButton.addEventListener('click', () => openModal());
   editButton.addEventListener('click', async () => {
     const produtosentradaSaida = await fetchProdutosEntradasSaidas(mov_id);
   

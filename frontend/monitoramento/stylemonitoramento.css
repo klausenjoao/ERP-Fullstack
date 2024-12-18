@@ -146,7 +146,7 @@
     text-align: center;
   }
 
-  .modal-cadastrar {
+  .modal-cadastrar, .modal-inserir {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -169,12 +169,12 @@
     justify-content: center;
   }
 
-  .modal-cadastrar label {
+  .modal-cadastrar label, .modal-inserir label{
     font-size: 14px;
     width: 100%;
   }
   
-  .modal-cadastrar input {
+  .modal-cadastrar input, .modal-inserir input {
     width: 100%;
     outline: none;
     padding: 5px 10px;
@@ -185,7 +185,7 @@
     border-right: none;
   }
   
-  .modal-cadastrar button {
+  .modal-cadastrar button, .modal-inserir button {
     margin: 10px auto;
     border-radius: 20px;
     padding: 5px 10px;
@@ -196,7 +196,7 @@
     justify-content: center;
   }
   
-  .modal-cadastrar button:hover{
+  .modal-cadastrar button:hover, .modal-inserir button:hover{
     background-color: #CD0C0D;
   }
   
