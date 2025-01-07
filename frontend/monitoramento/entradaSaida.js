@@ -14,7 +14,6 @@ const closeModal = () => {
 
 const tbodyEntradaSaida = document.querySelector("tbody");
 const tbodyProdutosEntradaSaida = document.getElementById("tbody-modal");
-const tbodyInserir = document.getElementById("tbody-modal-inserir")
   
   //ROTA QUE TRAZ OS USUARIOS
   const fetchEntradasSaidas = async () => {
