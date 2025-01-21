@@ -4,7 +4,7 @@ const getAllEntradasSaidas = async () =>{
     const [entradasSaidas] = await connection.execute (`SELECT mov_id, mov_tipo, mov_data,usu_nome,
 COALESCE(COUNT(mov_id), 0) AS quantidade_itens from movimentacaoAlmoxarifado
 left JOIN movimentacao_item on mov_id=moi_mov_id
-INNER JOIN usuarios on mov_usu_id=usu_id
+left JOIN usuarios on mov_usu_id=usu_id
 GROUP BY mov_id;`)
     return entradasSaidas;
 }
@@ -30,11 +30,11 @@ const getAllProdutosEntradasSaidas = async (mov_id) =>{
 
 
 const createEntradaSaida = async (entradasSaidas) =>{
-        const { mov_tipo, mov_quantidade, mov_usu_id} = entradasSaidas;
+        const { mov_tipo} = entradasSaidas;
     
-        const query = 'INSERT INTO movimentacaoAlmoxarifado(mov_tipo, mov_quantidade, mov_usu_id) values (?, ?, ?)';
+        const query = 'INSERT INTO movimentacaoAlmoxarifado(mov_tipo) values (?)';
     
-        const [createEntradaSaida] = await connection.execute(query, [mov_tipo, mov_quantidade, mov_usu_id]);
+        const [createEntradaSaida] = await connection.execute(query, [mov_tipo]);
     
         return {insertId:createEntradaSaida.insertId};
 }
