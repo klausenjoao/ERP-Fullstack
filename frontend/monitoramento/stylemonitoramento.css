@@ -146,7 +146,7 @@
     text-align: center;
   }
 
-  .modal-cadastrar, .modal-inserir {
+  .modal-cadastrar, .modal-inserir, .modal-mov{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -184,8 +184,25 @@
     border-left: none;
     border-right: none;
   }
+
+  .modal-mov form{
+    width: 70%;
+  }
+
+  .input-tipo-movimentacao{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .input-box-movimentacao label,
+.input-box-movimentacao input {
+  display: block; 
+  text-align: center; 
+}
   
-  .modal-cadastrar button, .modal-inserir button {
+  .modal-cadastrar button, .modal-inserir button, .modal-mov button {
     margin: 10px auto;
     border-radius: 20px;
     padding: 5px 10px;
@@ -196,7 +213,7 @@
     justify-content: center;
   }
   
-  .modal-cadastrar button:hover, .modal-inserir button:hover{
+  .modal-cadastrar button:hover, .modal-inserir button:hover, .modal-mov button:hover{
     background-color: #CD0C0D;
   }
   
