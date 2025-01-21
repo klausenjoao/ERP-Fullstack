@@ -36,7 +36,7 @@
 
   .botoes-header{
     display: flex;
-    width: 150px;
+    width: 300px;
     justify-content: space-between;
   }
 
