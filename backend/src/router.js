@@ -28,5 +28,6 @@ router.put('/usuarios/:usu_id', usuariosController.updatedUsuario);
 router.get('/entradasaida', entradaSaidaController.getAllEntradasSaidas);
 router.get('/entradasaida/:mov_id', entradaSaidaController.getAllEntradasSaidasEspecifico)
 router.get('/entradasaida/produtos/:mov_id', entradaSaidaController.getAllProdutosEntradasSaidas)
+router.post('/entradasaida', entradaSaidaController.createEntradasSaidas)
 
 module.exports = router;

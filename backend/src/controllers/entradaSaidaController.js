@@ -20,8 +20,14 @@ const getAllProdutosEntradasSaidas = async (request, response) =>{
 
 }
 
+const createEntradasSaidas = async(request, response) =>{
+    const createdEntradasSaidas = await entradaSaida.createEntradaSaida(request.body);
+    return response.status(201).json(createdEntradasSaidas);
+};
+
 module.exports = {
     getAllEntradasSaidas,
     getAllEntradasSaidasEspecifico,
-    getAllProdutosEntradasSaidas
+    getAllProdutosEntradasSaidas,
+    createEntradasSaidas
 }
