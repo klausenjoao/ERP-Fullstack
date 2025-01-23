@@ -25,9 +25,15 @@ const createEntradasSaidas = async(request, response) =>{
     return response.status(201).json(createdEntradasSaidas);
 };
 
+const createEntradasSaidasSelecionados = async(request, response) =>{
+    const createdEntradasSaidasSelecionados = await entradaSaida.createEntradasSaidasSelecionados(request.body);
+    return response.status(201).json(createdEntradasSaidasSelecionados);
+};
+
 module.exports = {
     getAllEntradasSaidas,
     getAllEntradasSaidasEspecifico,
     getAllProdutosEntradasSaidas,
-    createEntradasSaidas
+    createEntradasSaidas,
+    createEntradasSaidasSelecionados
 }

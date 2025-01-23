@@ -29,5 +29,6 @@ router.get('/entradasaida', entradaSaidaController.getAllEntradasSaidas);
 router.get('/entradasaida/:mov_id', entradaSaidaController.getAllEntradasSaidasEspecifico)
 router.get('/entradasaida/produtos/:mov_id', entradaSaidaController.getAllProdutosEntradasSaidas)
 router.post('/entradasaida', entradaSaidaController.createEntradasSaidas)
+router.post('/entradasaida/enviarselecionados', entradaSaidaController.createEntradasSaidasSelecionados)
 
 module.exports = router;

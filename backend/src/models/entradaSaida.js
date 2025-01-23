@@ -39,6 +39,16 @@ const createEntradaSaida = async (entradasSaidas) =>{
         return {insertId:createEntradaSaida.insertId};
 }
 
+const createEntradasSaidasSelecionados = async (entradasSaidas) =>{
+    const { mov_tipo} = entradasSaidas;
+
+    const query = 'INSERT INTO movimentacaoAlmoxarifado(mov_tipo) values (?)';
+
+    const [createEntradaSaida] = await connection.execute(query, [mov_tipo]);
+
+    return {insertId:createEntradaSaida.insertId};
+}
+
 module.exports = {
     getAllEntradasSaidas,
     getAllEntradasSaidasEspecifico,
