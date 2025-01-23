@@ -14,7 +14,9 @@ const closeModal = () => {
   document.getElementById("modal-cadastrar").classList.remove("active");
 };
 
-const addForm = document.querySelector(".form-produto");
+const addForm = document.querySelector(".form-produto .btnSalvar");
+const editForm = document.querySelector(".form-produto .btnSalvarAlteracoes");
+const inputId= document.querySelector(".produto-id")
 const inputDescricao = document.querySelector('.descricao')
 const inputProduto = document.querySelector('.titulo') 
 const tbody = document.querySelector("tbody");
@@ -42,7 +44,37 @@ closeModal();
 loadProduto();
 };
 
-addForm.addEventListener("submit", addProduto);
+  //PUXA AS INFORMAÇOES DO USUARIO BASEADO NO ID
+  const editProdutos = async (id) =>{
+    const getUsuario =  await fetch(`http://localhost:3333/produtos/${id}`)
+    const [produtos] = await getUsuario.json();
+
+    inputId.value = produtos.id;
+    inputProduto.value = produtos.titulo;
+    inputDescricao.value = produtos.descricao;
+    
+    openModalEdit()
+  }
+
+const updateProdutos = async (event) =>{
+  event.preventDefault();
+
+const id = inputId.value; 
+const titulo = inputProduto.value;
+const descricao = inputDescricao.value;
+
+const response = await fetch(`http://localhost:3333/produtos/${id}`,{
+  method:'put',
+  headers:{'content-type':'application/json'},
+  body: JSON.stringify({titulo, descricao})
+})
+
+if (!response.ok) throw new Error("Erro ao atualizar o produto");
+
+closeModal();
+loadProduto();
+}
+
 
 const deleteProduto = async(id) =>{
   await fetch(`http://localhost:3333/produtos/${id}`, {
@@ -87,7 +119,7 @@ const createProdutos = (produto) => {
   editButton.classList.add("btnacao");
   deleteButton.classList.add("btnacao");
   deleteButton.addEventListener('click', () => deleteProduto(id))
-  editButton.addEventListener('click', openModalEdit)
+  editButton.addEventListener('click', () => editProdutos(id))
   tdActions.classList.add("acoes");
 
   tdActions.appendChild(editButton);
@@ -113,5 +145,8 @@ const loadProduto = async () => {
     tbody.appendChild(tr);
   });
 };
+
+addForm.addEventListener("click", addProduto);
+editForm.addEventListener("click", updateProdutos);
 
 loadProduto();
