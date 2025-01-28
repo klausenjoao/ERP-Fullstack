@@ -40,11 +40,11 @@ const createEntradaSaida = async (entradasSaidas) =>{
 }
 
 const createEntradasSaidasSelecionados = async (entradasSaidas) =>{
-    const { mov_tipo} = entradasSaidas;
+    const { moi_mov_id, moi_prod_id} = entradasSaidas;
 
-    const query = 'INSERT INTO movimentacaoAlmoxarifado(mov_tipo) values (?)';
+    const query = 'INSERT INTO movimentacao_item(moi_mov_id, moi_prod_id) values (?, ?)';
 
-    const [createEntradaSaida] = await connection.execute(query, [mov_tipo]);
+    const [createEntradaSaida] = await connection.execute(query, [moi_mov_id, moi_prod_id]);
 
     return {insertId:createEntradaSaida.insertId};
 }
@@ -53,5 +53,6 @@ module.exports = {
     getAllEntradasSaidas,
     getAllEntradasSaidasEspecifico,
     getAllProdutosEntradasSaidas,
-    createEntradaSaida
+    createEntradaSaida,
+    createEntradasSaidasSelecionados
 }
