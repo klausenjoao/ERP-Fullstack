@@ -158,7 +158,8 @@ const createEntradaSaida = (entradaSaida) => {
 
 //------------------------------
 
-const createProdutosEntradaSaida = async (produtosentradaSaida, mov_id) => {
+//MOSTRA NA TELA OS PRODUTOS CONTIDOS NA MOVIMENTAÇÃO
+const createProdutosEntradaSaida = async (produtosentradaSaida) => {
   const { id, titulo, quantidade_produtos } = produtosentradaSaida;
 
   const tr = document.createElement("tr");
@@ -174,7 +175,9 @@ const createProdutosEntradaSaida = async (produtosentradaSaida, mov_id) => {
 
   return tr;
 };
+//------------------------------
 
+//ATUALIZA AS MOVIMENTACOES NA TELA
 const loadEntradaSaida = async () => {
   const entradaSaida = await fetchEntradasSaidas();
 

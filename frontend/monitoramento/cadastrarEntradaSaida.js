@@ -57,7 +57,7 @@ const fetchProdutos = async () => {
       if (!response.ok) throw new Error("Erro ao enviar produtos selecionados");
   
       alert("Produtos selecionados enviados com sucesso!");
-      loadProdutos(); // Recarrega a tabela, se necessário
+      loadProduto(); // Recarrega a tabela, se necessário
     } catch (error) {
       console.error(error);
       alert("Erro ao enviar produtos.");
