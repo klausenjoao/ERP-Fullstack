@@ -9,11 +9,6 @@ GROUP BY mov_id;`)
     return entradasSaidas;
 }
 
-const getEntradasSaidasUltima = async () =>{
-  const [ultimaEntradasSaidas] = await connection.execute (`select mov_id from movimentacaoAlmoxarifado order by 1 desc limit 1;`)
-  return ultimaEntradasSaidas;
-}
-
 const getAllEntradasSaidasEspecifico = async (mov_id) =>{
     const [getEAespecifico] = await connection.execute('SELECT*FROM movimentacaoAlmoxarifado where mov_id=?',[mov_id])
     return getEAespecifico
@@ -46,13 +41,20 @@ const createEntradaSaida = async (entradasSaidas) =>{
 
 //INSERE OS PRODUTOS JUNTO COM O ID DA MOVIMENTACAO NA MOVIMENTACAO_ITEM
 const createEntradasSaidasSelecionados = async (entradasSaidas) => {
-    const { moi_mov_id, moi_prod_id } = entradasSaidas;
+    const { moi_prod_id } = entradasSaidas;
   
     if (!Array.isArray(moi_prod_id)) {
       throw new Error("O campo 'moi_prod_id' deve ser um array.");
     }
   
+    const query2 = 'SELECT mov_id FROM movimentacaoAlmoxarifado ORDER BY mov_id DESC LIMIT 1';
+    const [movimentacao] = await connection.execute(query2);
+
+    const moi_mov_id = movimentacao[0].mov_id;
+
+  
     const query = 'INSERT INTO movimentacao_item (moi_mov_id, moi_prod_id) VALUES (?, ?)';
+
   
     // Loop para inserir um ou mai produtos na movimentacao_item
     const insertResults = await Promise.all(
