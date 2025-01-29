@@ -69,7 +69,6 @@ const createEntradasSaidasSelecionados = async (entradasSaidas) => {
 
 module.exports = {
     getAllEntradasSaidas,
-    getEntradasSaidasUltima,
     getAllEntradasSaidasEspecifico,
     getAllProdutosEntradasSaidas,
     createEntradaSaida,
