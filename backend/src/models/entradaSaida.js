@@ -39,20 +39,32 @@ const createEntradaSaida = async (entradasSaidas) =>{
         return {insertId:createEntradaSaida.insertId};
 }
 
-const createEntradasSaidasSelecionados = async (entradasSaidas) =>{
-    const { moi_mov_id, moi_prod_id} = entradasSaidas;
-
-    const query = 'INSERT INTO movimentacao_item(moi_mov_id, moi_prod_id) values (?, ?)';
-
-    const [createEntradaSaida] = await connection.execute(query, [moi_mov_id, moi_prod_id]);
-
-    return {insertId:createEntradaSaida.insertId};
-}
+//INSERE OS PRODUTOS JUNTO COM O ID DA MOVIMENTACAO NA MOVIMENTACAO_ITEM
+const createEntradasSaidasSelecionados = async (entradasSaidas) => {
+    const { moi_mov_id, moi_prod_id } = entradasSaidas;
+  
+    if (!Array.isArray(moi_prod_id)) {
+      throw new Error("O campo 'moi_prod_id' deve ser um array.");
+    }
+  
+    const query = 'INSERT INTO movimentacao_item (moi_mov_id, moi_prod_id) VALUES (?, ?)';
+  
+    // Loop para inserir um ou mai produtos na movimentacao_item
+    const insertResults = await Promise.all(
+      moi_prod_id.map(async (moi_prod_id) => {
+        const [result] = await connection.execute(query, [moi_mov_id, moi_prod_id]);
+        return result.insertId; 
+      })
+    );
+    return { insertIds: insertResults }; 
+  };
+  
 
 module.exports = {
     getAllEntradasSaidas,
     getAllEntradasSaidasEspecifico,
     getAllProdutosEntradasSaidas,
     createEntradaSaida,
-    createEntradasSaidasSelecionados
+    createEntradasSaidasSelecionados,
+    getUltimaEntradasaida
 }
