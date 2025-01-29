@@ -26,6 +26,7 @@ router.put('/usuarios/:usu_id', usuariosController.updatedUsuario);
 
 //Entrada e Saida
 router.get('/entradasaida', entradaSaidaController.getAllEntradasSaidas);
+router.get('/entradasaida/ultimo', entradaSaidaController.getEntradasSaidasUltima);
 router.get('/entradasaida/:mov_id', entradaSaidaController.getAllEntradasSaidasEspecifico)
 router.get('/entradasaida/produtos/:mov_id', entradaSaidaController.getAllProdutosEntradasSaidas)
 router.post('/entradasaida', entradaSaidaController.createEntradasSaidas)

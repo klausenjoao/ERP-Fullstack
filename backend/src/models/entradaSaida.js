@@ -9,6 +9,11 @@ GROUP BY mov_id;`)
     return entradasSaidas;
 }
 
+const getEntradasSaidasUltima = async () =>{
+  const [ultimaEntradasSaidas] = await connection.execute (`select mov_id from movimentacaoAlmoxarifado order by 1 desc limit 1;`)
+  return ultimaEntradasSaidas;
+}
+
 const getAllEntradasSaidasEspecifico = async (mov_id) =>{
     const [getEAespecifico] = await connection.execute('SELECT*FROM movimentacaoAlmoxarifado where mov_id=?',[mov_id])
     return getEAespecifico
@@ -62,9 +67,9 @@ const createEntradasSaidasSelecionados = async (entradasSaidas) => {
 
 module.exports = {
     getAllEntradasSaidas,
+    getEntradasSaidasUltima,
     getAllEntradasSaidasEspecifico,
     getAllProdutosEntradasSaidas,
     createEntradaSaida,
-    createEntradasSaidasSelecionados,
-    getUltimaEntradasaida
+    createEntradasSaidasSelecionados
 }

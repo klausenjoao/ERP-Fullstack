@@ -7,6 +7,11 @@ const getAllEntradasSaidas = async (request, response) =>{
     return response.status(200).json(todasEntradasSaidas);
 };
 
+const getEntradasSaidasUltima = async (request, response) =>{
+    const UltimaEntradasSaidas = await entradaSaida.getEntradasSaidasUltima();
+    return response.status(200).json(UltimaEntradasSaidas);
+};
+
 const getAllEntradasSaidasEspecifico = async (request, response) =>{
     const {mov_id} = request.params;
     const todasEntradasSaidas = await entradaSaida.getAllEntradasSaidasEspecifico(mov_id);
@@ -32,6 +37,7 @@ const createEntradasSaidasSelecionados = async(request, response) =>{
 
 module.exports = {
     getAllEntradasSaidas,
+    getEntradasSaidasUltima,
     getAllEntradasSaidasEspecifico,
     getAllProdutosEntradasSaidas,
     createEntradasSaidas,
