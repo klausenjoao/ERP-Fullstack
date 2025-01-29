@@ -40,18 +40,23 @@ const fetchProdutos = async () => {
     const checkboxes = document.querySelectorAll(".produto-checkbox:checked");
     const idsSelecionados = Array.from(checkboxes).map((checkbox) => checkbox.value);
   
+    // Obtém o último mov_id
+    const response = await fetch("http://localhost:3333/entradasaida/ultimo");
+    const ultimoMov = await response.json();
+    const moi_mov_id = ultimoMov.mov_id;
+  
     if (idsSelecionados.length === 0) {
       alert("Nenhum produto selecionado!");
       return;
     }
   
     try {
-      const response = await fetch("http://localhost:3333/selecionar-produtos", {
+      const response = await fetch("http://localhost:3333/entradasaida/enviarselecionados", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ produtos: idsSelecionados }),
+        body: JSON.stringify({moi_prod_id: idsSelecionados}),
       });
   
       if (!response.ok) throw new Error("Erro ao enviar produtos selecionados");
@@ -63,6 +68,10 @@ const fetchProdutos = async () => {
       alert("Erro ao enviar produtos.");
     }
   };
+  
+  // Event listener para o botão de inserir
+  inserirButton.addEventListener("click", enviarProdutosSelecionados);
+  
   
   // Event listener para o botão de inserir
   inserirButton.addEventListener("click", enviarProdutosSelecionados);
