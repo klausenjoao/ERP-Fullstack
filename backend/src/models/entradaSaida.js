@@ -30,11 +30,11 @@ const getAllProdutosEntradasSaidas = async (mov_id) =>{
 
 
 const createEntradaSaida = async (entradasSaidas) =>{
-        const { mov_tipo} = entradasSaidas;
+        const { mov_tipo,mov_usu_id} = entradasSaidas;
     
-        const query = 'INSERT INTO movimentacaoAlmoxarifado(mov_tipo) values (?)';
+        const query = 'INSERT INTO movimentacaoAlmoxarifado(mov_tipo, mov_usu_id) values (?,?)';
     
-        const [createEntradaSaida] = await connection.execute(query, [mov_tipo]);
+        const [createEntradaSaida] = await connection.execute(query, [mov_tipo,mov_usu_id]);
     
         return {insertId:createEntradaSaida.insertId};
 }

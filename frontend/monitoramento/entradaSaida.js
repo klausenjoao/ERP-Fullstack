@@ -66,7 +66,11 @@ const addMovimentacao = async (event) => {
     'input[name="tipo-movimentacao"]:checked'
   );
 
-  const entradaSaida = { mov_tipo: tipoSelecionado.value };
+  const usuSelecionado = document.querySelector(".usuario-checkbox:checked");
+  const idUsuSelecionado = usuSelecionado ? parseInt(usuSelecionado.value, 10) : null;
+
+
+  const entradaSaida = { mov_tipo: tipoSelecionado.value, mov_usu_id: idUsuSelecionado};
 
   await fetch("http://localhost:3333/entradasaida", {
     method: "post",
