@@ -1,14 +1,14 @@
-const openModal = () =>{
+const openModal = () => {
   document.getElementById("modal-cadastrar").classList.add("active");
-  document.querySelector('.btnSalvarAlteracoes').style.display='none'
-}
+  document.querySelector(".btnSalvarAlteracoes").style.display = "none";
+};
 
-  const openModalEdit = () =>{
-    document.getElementById("modal-cadastrar").classList.add("active");
-    document.querySelector('.btnSalvar').style.display='none';
-    document.querySelector('.produto-id').style.pointerEvents='none'
-    document.querySelector('.produto-id-label').style.pointerEvents='none'
-  }
+const openModalEdit = () => {
+  document.getElementById("modal-cadastrar").classList.add("active");
+  document.querySelector(".btnSalvar").style.display = "none";
+  document.querySelector(".produto-id").style.pointerEvents = "none";
+  document.querySelector(".produto-id-label").style.pointerEvents = "none";
+};
 
 const closeModal = () => {
   document.getElementById("modal-cadastrar").classList.remove("active");
@@ -16,9 +16,9 @@ const closeModal = () => {
 
 const addForm = document.querySelector(".form-produto .btnSalvar");
 const editForm = document.querySelector(".form-produto .btnSalvarAlteracoes");
-const inputId= document.querySelector(".produto-id")
-const inputDescricao = document.querySelector('.descricao')
-const inputProduto = document.querySelector('.titulo') 
+const inputId = document.querySelector(".produto-id");
+const inputDescricao = document.querySelector(".descricao");
+const inputProduto = document.querySelector(".titulo");
 const tbody = document.querySelector("tbody");
 
 const fetchProdutos = async () => {
@@ -31,57 +31,58 @@ const fetchProdutos = async () => {
 const addProduto = async (event) => {
   event.preventDefault();
 
-  const produto= {titulo: inputProduto.value, descricao: inputDescricao.value};
+  const produto = {
+    titulo: inputProduto.value,
+    descricao: inputDescricao.value,
+  };
 
+  await fetch("http://localhost:3333/produtos", {
+    method: "post",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify(produto),
+  });
 
-  await fetch("http://localhost:3333/produtos", { 
-    method: 'post',
-    headers:{'content-type':'application/json'},
-    body: JSON.stringify(produto)
-});
-
-closeModal();
-loadProduto();
+  closeModal();
+  loadProduto();
 };
 
-  //PUXA AS INFORMAÇOES DO USUARIO BASEADO NO ID
-  const editProdutos = async (id) =>{
-    const getUsuario =  await fetch(`http://localhost:3333/produtos/${id}`)
-    const [produtos] = await getUsuario.json();
+//PUXA AS INFORMAÇOES DO USUARIO BASEADO NO ID
+const editProdutos = async (id) => {
+  const getUsuario = await fetch(`http://localhost:3333/produtos/${id}`);
+  const [produtos] = await getUsuario.json();
 
-    inputId.value = produtos.id;
-    inputProduto.value = produtos.titulo;
-    inputDescricao.value = produtos.descricao;
-    
-    openModalEdit()
-  }
+  inputId.value = produtos.id;
+  inputProduto.value = produtos.titulo;
+  inputDescricao.value = produtos.descricao;
 
-const updateProdutos = async (event) =>{
+  openModalEdit();
+};
+
+const updateProdutos = async (event) => {
   event.preventDefault();
 
-const id = inputId.value; 
-const titulo = inputProduto.value;
-const descricao = inputDescricao.value;
+  const id = inputId.value;
+  const titulo = inputProduto.value;
+  const descricao = inputDescricao.value;
 
-const response = await fetch(`http://localhost:3333/produtos/${id}`,{
-  method:'put',
-  headers:{'content-type':'application/json'},
-  body: JSON.stringify({titulo, descricao})
-})
+  const response = await fetch(`http://localhost:3333/produtos/${id}`, {
+    method: "put",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify({ titulo, descricao }),
+  });
 
-if (!response.ok) throw new Error("Erro ao atualizar o produto");
+  if (!response.ok) throw new Error("Erro ao atualizar o produto");
 
-closeModal();
-loadProduto();
-}
-
-
-const deleteProduto = async(id) =>{
-  await fetch(`http://localhost:3333/produtos/${id}`, {
-    method:'delete',
-  })
+  closeModal();
   loadProduto();
-}
+};
+
+const deleteProduto = async (id) => {
+  await fetch(`http://localhost:3333/produtos/${id}`, {
+    method: "delete",
+  });
+  loadProduto();
+};
 
 const createElement = (tag, innerText = "", innerHTML = "") => {
   const element = document.createElement(tag);
@@ -118,8 +119,8 @@ const createProdutos = (produto) => {
 
   editButton.classList.add("btnacao");
   deleteButton.classList.add("btnacao");
-  deleteButton.addEventListener('click', () => deleteProduto(id))
-  editButton.addEventListener('click', () => editProdutos(id))
+  deleteButton.addEventListener("click", () => deleteProduto(id));
+  editButton.addEventListener("click", () => editProdutos(id));
   tdActions.classList.add("acoes");
 
   tdActions.appendChild(editButton);
@@ -138,7 +139,7 @@ const createProdutos = (produto) => {
 const loadProduto = async () => {
   const produto = await fetchProdutos();
 
-  tbody.innerHTML='';
+  tbody.innerHTML = "";
 
   produto.forEach((produto) => {
     const tr = createProdutos(produto);

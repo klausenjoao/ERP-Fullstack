@@ -33,7 +33,7 @@ const abrirModalEspecifico = (modalId) => {
 const tbodyEntradaSaida = document.querySelector("tbody");
 const tbodyProdutosEntradaSaida = document.getElementById("tbody-modal");
 const inputTipo = document.getElementById("tipo-movimentacao");
-const botaoMovimentacao= document.getElementById("gravarMovimentacao");
+const botaoMovimentacao = document.getElementById("gravarMovimentacao");
 
 //ROTA QUE TRAZ AS MOVIMENTAÇOES
 const fetchEntradasSaidas = async () => {
@@ -62,21 +62,21 @@ const fetchProdutosEntradasSaidas = async (mov_id) => {
 const addMovimentacao = async (event) => {
   event.preventDefault();
 
+  const tipoSelecionado = document.querySelector(
+    'input[name="tipo-movimentacao"]:checked'
+  );
 
-  const tipoSelecionado = document.querySelector('input[name="tipo-movimentacao"]:checked');
+  const entradaSaida = { mov_tipo: tipoSelecionado.value };
 
-  const entradaSaida= { mov_tipo: tipoSelecionado.value };
-
-
-  await fetch("http://localhost:3333/entradasaida", { 
-    method: 'post',
-    headers:{'content-type':'application/json'},
-    body: JSON.stringify(entradaSaida)
-});
+  await fetch("http://localhost:3333/entradasaida", {
+    method: "post",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify(entradaSaida),
+  });
 };
 
 botaoMovimentacao?.addEventListener("click", (event) => {
-  addMovimentacao(event); 
+  addMovimentacao(event);
   abrirModalEspecifico("modal-inserir");
 });
 
@@ -132,7 +132,7 @@ const createEntradaSaida = (entradaSaida) => {
   editButton.classList.add("btnacao");
   tdActions.classList.add("acoes");
   editButton.addEventListener("click", async () => {
-  const produtosentradaSaida = await fetchProdutosEntradasSaidas(mov_id);
+    const produtosentradaSaida = await fetchProdutosEntradasSaidas(mov_id);
 
     tbodyProdutosEntradaSaida.innerHTML = "";
 
