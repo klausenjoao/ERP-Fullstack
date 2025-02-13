@@ -1,241 +1,248 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
-  }
-  
-  body {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  button {
-    cursor: pointer;
-    align-items: center;
-    display: flex;
-  }
-  
-  .container {
-    width: 90%;
-    height: 80%;
-    background: white;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.212);
-  }
-  
-  .form-header {
-    min-height: 70px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: auto 12px;
-  }
-
-  .botoes-header{
-    display: flex;
-    width: 150px;
-    justify-content: space-between;
-  }
-
-  .acoes{
-    display: flex;
-    justify-content: space-between;
-    width: 100px;
-  }
-  
-  .btnacao{
-    margin-right:15px ;
-    color: white;
-    padding: 5px;
-    background-color: #B9110C;
-    border: none;
-    border-radius: 5px;
-  }
-
-  .btnacao:hover{
-    background-color: #CD0C0D;
-  }
-
-  .form-header span::after {
-    content: '';
-    display: block;
-    width: 20rem;
-    height: 0.3rem;
-    background-color: #B9110C;
-    margin: 0 auto;
-    position: absolute;
-    border-radius: 10px;
-  }
-  
-  .form-header span {
-    font-weight: 900;
-    font-size: 20px;
-    word-break: break-all;
-  }
-  
-  #return {
-    font-size: 16px;
-    padding: 8px;
-    border-radius: 5px;
-    border: none;
-    color: white;
-    background-color: #B9110C;
-  }
-
-  #return:hover{
-    background-color: #CD0C0D;
-  }
-  
-  .divTable {
-    padding: 10px;
-    width: auto;
-    height: inherit;
-    overflow: auto;
-  }
-  
-  .divTable::-webkit-scrollbar {
-    width: 12px;
-    background-color: whitesmoke;
-  }
-  
-  .divTable::-webkit-scrollbar-thumb {
-    border-radius: 10px;
-    background-color: darkgray;
-  }
-  
-  table {
-    width: 100%;
-    border-spacing: 10px;
-    word-break: break-all;
-    border-collapse: collapse;
-  }
-  
-  thead {
-    background-color: whitesmoke;
-  }
-  
-  tr {
-    border-bottom: 1px solid rgb(238, 235, 235) !important;
-  }
-  
-  tbody tr td {
-    vertical-align: text-top;
-    padding: 6px;
-    max-width: 50px;
-  }
-  
-  thead tr th {
-    padding: 5px;
-    text-align: start;
-    margin-bottom: 50px;
-  }
-  
-  tbody tr {
-    margin-bottom: 50px;
-  }
-  
-  thead tr th.acao {
-    width: 100px !important;
-    text-align: center;
-  }
-  
-  tbody tr td.acao {
-    text-align: center;
-  }
-
-  .modal-cadastrar, .modal-inserir, .modal-mov{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 40px;
-    background-color: white;
-    border-radius: 10px;
-    width: 50%;
-  }
-
-  .modal-container {
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: none;
-    z-index: 999;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .modal-inserir{
-    overflow: auto;
-    height: inherit;
-  }
-
-  .modal-inserir::-webkit-scrollbar{
-    width: 12px;
-    background-color: whitesmoke;
-  }
-  
-  .modal-inserir::-webkit-scrollbar-thumb {
-    border-radius: 10px;
-    background-color: darkgray;
-  }
-
-  .modal-cadastrar label, .modal-inserir label{
-    font-size: 14px;
-    width: 100%;
-  }
-  
-  .modal-cadastrar input, .modal-inserir input {
-    width: 100%;
-    outline: none;
-    padding: 5px 10px;
-    width: 100%;
-    margin-bottom: 20px;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-  }
-
-  .modal-mov form{
-    width: 70%;
-  }
-
-  .input-tipo-movimentacao{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
-
-  .input-box-movimentacao label,
-.input-box-movimentacao input {
-  display: block; 
-  text-align: center; 
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
 }
-  
-  .modal-cadastrar button, .modal-inserir button, .modal-mov button {
-    margin: 10px auto;
-    border-radius: 20px;
-    padding: 5px 10px;
-    width: 25%;
-    border: none;
-    background-color: #B9110C;
-    color: white;
-    justify-content: center;
-  }
-  
-  .modal-cadastrar button:hover, .modal-inserir button:hover, .modal-mov button:hover{
-    background-color: #CD0C0D;
-  }
-  
-  .active {
-    display: flex;
-  }
-  
-  .active .modal-cadastrar {
-    animation: modal .4s;
-  }
+
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button {
+  cursor: pointer;
+  align-items: center;
+  display: flex;
+}
+
+.container {
+  width: 90%;
+  height: 80%;
+  background: white;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.212);
+}
+
+.form-header {
+  min-height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: auto 12px;
+}
+
+.botoes-header {
+  display: flex;
+  width: 150px;
+  justify-content: space-between;
+}
+
+.acoes {
+  display: flex;
+  justify-content: space-between;
+  width: 100px;
+}
+
+.btnacao {
+  margin-right: 15px;
+  color: white;
+  padding: 5px;
+  background-color: #b9110c;
+  border: none;
+  border-radius: 5px;
+}
+
+.btnacao:hover {
+  background-color: #cd0c0d;
+}
+
+.form-header span::after {
+  content: "";
+  display: block;
+  width: 20rem;
+  height: 0.3rem;
+  background-color: #b9110c;
+  margin: 0 auto;
+  position: absolute;
+  border-radius: 10px;
+}
+
+.form-header span {
+  font-weight: 900;
+  font-size: 20px;
+  word-break: break-all;
+}
+
+#return {
+  font-size: 16px;
+  padding: 8px;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  background-color: #b9110c;
+}
+
+#return:hover {
+  background-color: #cd0c0d;
+}
+
+.divTable {
+  padding: 10px;
+  width: auto;
+  height: inherit;
+  overflow: auto;
+}
+
+.divTable::-webkit-scrollbar {
+  width: 12px;
+  background-color: whitesmoke;
+}
+
+.divTable::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: darkgray;
+}
+
+table {
+  width: 100%;
+  border-spacing: 10px;
+  word-break: break-all;
+  border-collapse: collapse;
+}
+
+thead {
+  background-color: whitesmoke;
+}
+
+tr {
+  border-bottom: 1px solid rgb(238, 235, 235) !important;
+}
+
+tbody tr td {
+  vertical-align: text-top;
+  padding: 6px;
+  max-width: 50px;
+}
+
+thead tr th {
+  padding: 5px;
+  text-align: start;
+  margin-bottom: 50px;
+}
+
+tbody tr {
+  margin-bottom: 50px;
+}
+
+thead tr th.acao {
+  width: 100px !important;
+  text-align: center;
+}
+
+tbody tr td.acao {
+  text-align: center;
+}
+
+.modal-cadastrar,
+.modal-inserir,
+.modal-mov {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+  background-color: white;
+  border-radius: 10px;
+  width: 50%;
+}
+
+.modal-container {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  z-index: 999;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-inserir {
+  overflow: auto;
+  height: inherit;
+}
+
+.modal-inserir::-webkit-scrollbar {
+  width: 12px;
+  background-color: whitesmoke;
+}
+
+.modal-inserir::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: darkgray;
+}
+
+.modal-cadastrar label,
+.modal-inserir label {
+  font-size: 14px;
+  width: 100%;
+}
+
+.modal-cadastrar input,
+.modal-inserir input {
+  width: 100%;
+  outline: none;
+  padding: 5px 10px;
+  width: 100%;
+  margin-bottom: 20px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+
+.modal-mov form {
+  width: 70%;
+}
+
+.radio-tipo{
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.input-tipo-movimentacao {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 200px;
+}
+
+.modal-cadastrar button,
+.modal-inserir button,
+.modal-mov button {
+  margin: 10px auto;
+  border-radius: 20px;
+  padding: 5px 10px;
+  width: 25%;
+  border: none;
+  background-color: #b9110c;
+  color: white;
+  justify-content: center;
+}
+
+.modal-cadastrar button:hover,
+.modal-inserir button:hover,
+.modal-mov button:hover {
+  background-color: #cd0c0d;
+}
+
+.active {
+  display: flex;
+}
+
+.active .modal-cadastrar {
+  animation: modal 0.4s;
+}
