@@ -122,3 +122,14 @@ ul li:hover ul.opcoesSuspensas {
   color: white;
   width: max-content;
 }
+
+.cabecalho{
+  display: flex;
+  justify-content: center;
+}
+
+.tittle span {
+  font-weight: bold;
+  font-size: 20px;
+  word-break: break-all;
+}
