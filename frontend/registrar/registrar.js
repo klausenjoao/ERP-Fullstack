@@ -11,7 +11,7 @@ function registrar() {
     .auth()
     .createUserWithEmailAndPassword(email, password)
     .then(() => {
-      window.location.href = "../index.html";
+      window.location.href = "./login.html";
     })
     .cath((error) => {
       alert(getErrorMessage(error));

@@ -44,7 +44,7 @@ function loginSistema() {
 }
 
 function redirecionamentoRegistrarSistema() {
-  window.location.href = "./frontend/registrar/registrar.html";
+  window.location.href = "./index.html";
 }
 
 function recoverPassword() {
