@@ -67,10 +67,14 @@ const addMovimentacao = async (event) => {
   );
 
   const usuSelecionado = document.querySelector(".usuario-checkbox:checked");
-  const idUsuSelecionado = usuSelecionado ? parseInt(usuSelecionado.value, 10) : null;
+  const idUsuSelecionado = usuSelecionado
+    ? parseInt(usuSelecionado.value, 10)
+    : null;
 
-
-  const entradaSaida = { mov_tipo: tipoSelecionado.value, mov_usu_id: idUsuSelecionado};
+  const entradaSaida = {
+    mov_tipo: tipoSelecionado.value,
+    mov_usu_id: idUsuSelecionado,
+  };
 
   await fetch("http://localhost:3333/entradasaida", {
     method: "post",
@@ -81,7 +85,7 @@ const addMovimentacao = async (event) => {
 
 botaoMovimentacao?.addEventListener("click", (event) => {
   addMovimentacao(event);
-  closeModalEspecifico(`modal-mov`)
+  closeModalEspecifico(`modal-mov`);
   abrirModalEspecifico("modal-inserir");
 });
 

@@ -32,12 +32,12 @@ const createUsuario = (usuarios) => {
   const tdNome = createElement("td", usu_nome);
   const tdActions = createElement("td");
 
-    // Checkbox para seleção
-    const checkbox = document.createElement("input");
-    checkbox.type = "checkbox";
-    checkbox.value = usu_id;
-    checkbox.classList.add("usuario-checkbox");
-  
+  // Checkbox para seleção
+  const checkbox = document.createElement("input");
+  checkbox.type = "checkbox";
+  checkbox.value = usu_id;
+  checkbox.classList.add("usuario-checkbox");
+
   tdActions.appendChild(checkbox);
 
   tr.appendChild(tdCodigo);

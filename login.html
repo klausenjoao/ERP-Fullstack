@@ -6,14 +6,14 @@
     <title>AlmoxSoft</title>
     <link rel="stylesheet" href="./frontend/style.css" />
     <link
-    rel="shortcut icon"
-    type="imagex/png"
-    href="./frontend/Assets/iconeGuia/iconeGuia.ico"
+      rel="shortcut icon"
+      type="imagex/png"
+      href="./frontend/Assets/iconeGuia/iconeGuia.ico"
     />
   </head>
 
-<body class="login">
-  <div class="conteinerLogin">
+  <body class="login">
+    <div class="conteinerLogin">
       <div class="formLogin">
         <div class="title">
           <img src="./frontend/Assets/Logo/logoPescador.png" alt="" />
@@ -47,21 +47,40 @@
             </div>
 
             <div class="input-box-login">
-              <button type="button" id="login" disabled="true" onclick="loginSistema()">Entrar</button>
+              <button
+                type="button"
+                id="login"
+                disabled="true"
+                onclick="loginSistema()"
+              >
+                Entrar
+              </button>
             </div>
 
             <div class="input-box-login">
-              <button type="button" id="recovery-password" disabled="true" onclick="recoverPassword()">Recuperar Senha</button>
+              <button
+                type="button"
+                id="recovery-password"
+                disabled="true"
+                onclick="recoverPassword()"
+              >
+                Recuperar Senha
+              </button>
             </div>
 
             <div class="input-box-login">
-              <button type="button" id="registrar" onclick="redirecionamentoRegistrarSistema()">Registrar</button>
+              <button
+                type="button"
+                id="registrar"
+                onclick="redirecionamentoRegistrarSistema()"
+              >
+                Registrar
+              </button>
             </div>
-
           </div>
         </form>
       </div>
-  </div>
+    </div>
   </body>
   <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-auth-compat.js"></script>
