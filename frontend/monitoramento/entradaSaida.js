@@ -81,6 +81,7 @@ const addMovimentacao = async (event) => {
 
 botaoMovimentacao?.addEventListener("click", (event) => {
   addMovimentacao(event);
+  closeModalEspecifico(`modal-mov`)
   abrirModalEspecifico("modal-inserir");
 });
 

@@ -171,11 +171,6 @@ tbody tr td.acao {
   justify-content: center;
 }
 
-.modal-inserir {
-  overflow: auto;
-  height: inherit;
-}
-
 .modal-inserir::-webkit-scrollbar {
   width: 12px;
   background-color: whitesmoke;
