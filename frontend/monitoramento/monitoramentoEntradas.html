@@ -4,47 +4,128 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gerenciador</title>
+    <title>AlmoxSoft</title>
     <link rel="stylesheet" href="./stylemonitoramento.css">
-    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
     <link
     rel="shortcut icon"
     type="imagex/png"
-    href="../Assets/iconeGuia/iconeGuia.ico"
-    />
+    href="../Assets/iconeGuia/iconeGuia.ico"/>
 </head>
 
 <body>
-    <div class="container">
-        <div class="form-header">
-            <span>Monitoramento Associados mensalistas</span>
-            <button onclick="window.location.href = '../home/homeinicial.html'" id="return" >Voltar</i></button>
-        </div>
-        <div class="divTable">
-            <table id="tableProfessor">
-                <thead>
-                    <tr>
-                        <th>Codigo</th>
-                        <th>Nome</th>
-                        <th>Sobrenome</th>
-                        <th>Email</th>
-                        <th>Telefone</th>
-                        <th>Ações</th>
-                    </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
-        </div>
+<div class="container">
+    <div class="form-header">
+        <span>Monitoramento Entradas e Saídas</span>
+        <div class="botoes-header">
+        <button onclick="openModalInserir()" id="return" >Inserir</i></button>
+        <button onclick="window.location.href = '../home/homeinicial.html'" id="return" >Voltar</i></button>
     </div>
+</div>
+
+<!--Tabela principal-->
+<div class="divTable">
+    <table id="tableEntradaSaidas">
+        <thead>
+            <tr>
+                <th>Codigo</th>
+                <th>Tipo</th>
+                <th>Data</th>
+                <th>Quantidade</th>
+                <th>Usuário</th>
+                <th>Editar</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</div>
+
+<!--Tabela da Edição-->
+<div class="modal-container" id="modal-cadastrar">
+    <div class="modal-cadastrar">
+        <table id="tableProdutosEntradaSaidas">
+            <thead>
+                <tr>
+                    <th>Codigo</th>
+                    <th>Produto</th>
+                    <th>Quantidade</th>
+                </tr>
+            </thead>
+            <tbody id="tbody-modal">
+            </tbody>
+        </table>
+        <button id="cancelar" onclick="closeModal()">Fechar</button>
+    </div>
+</div>
+
+<!--Formulario para lançar a movimentação-->
+<div class="modal-container" id="modal-mov">
+    <div class="modal-mov">
+        <div class="radio-tipo">
+            <div class="input-tipo-movimentacao">
+                <div class="input-box-movimentacao">
+                  <label for="entrada">Entrada</label>
+                  <input
+                    id="entrada"
+                    class="tipo-movimentacao"
+                    type="radio"
+                    name="tipo-movimentacao"
+                    value="entrada"/>
+                </div>
+
+                <div class="input-box-movimentacao">
+                    <label for="saida">Saida</label>
+                    <input
+                    id="saida"
+                    class="tipo-movimentacao"
+                    type="radio"
+                    name="tipo-movimentacao"
+                    value="saida"/>
+                </div>
+            </div>
+        </div>
+
+        <table id="tableInserirEntradaSaidasUsuarios">
+            <thead>
+                <tr>
+                    <th>Codigo</th>
+                    <th>Nome</th>
+                    <th>Selecione</th>
+                </tr>
+            </thead>
+            <tbody id="tbody-modal-usuarios">
+            </tbody>
+        </table>
+        <button class="btnSalvar" id="gravarMovimentacao" type="click">Gravar</button>
+        <button id="cancelar" onclick="closeModal()">Fechar</button>
+    </div>
+</div>
+
+<!--Tabela para selecionar e gravar os itens-->
+<div class="modal-container" id="modal-inserir">
+    <div class="modal-inserir">
+        <table id="tableInserirEntradaSaidas">
+            <thead>
+                <tr>
+                    <th>Codigo</th>
+                    <th>Produto</th>
+                    <th>Descrição</th>
+                    <th>Selecione</th>
+                </tr>
+            </thead>
+            <tbody id="tbody-modal-inserir">
+            </tbody>
+        </table>
+        <button class="btnSalvar" id="inserir-produtos" type="submit">Inserir</button>
+        <button id="cancelar" onclick="closeModal()">Fechar</button>
+    </div>
+</div>
 </body>
+
+<script src="./entradaSaida.js"></script>
+<script src="./cadastrarEntradaSaida.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-auth-compat.js"></script>
 <script src="../firebase-init.js"></script>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AlmoxSoft</title>
+    <link rel="stylesheet" href="./frontend/style.css" />
+    <link
+    rel="shortcut icon"
+    type="imagex/png"
+    href="./frontend/Assets/iconeGuia/iconeGuia.ico"
+    />
+  </head>
+
+<body class="login">
+  <div class="conteinerLogin">
+      <div class="formLogin">
+        <div class="title">
+          <img src="./frontend/Assets/Logo/logoPescador.png" alt="" />
+          <h3>AlmoxSoft</h3>
+        </div>
+        <form>
+          <div class="input-group-login">
+            <div class="input-box-login">
+              <label for="firstname">Usuário</label>
+              <input
+                id="email"
+                type="email"
+                name="email"
+                placeholder="Email"
+                onchange="validateFields()"
+                required
+              />
+            </div>
+
+            <div class="input-box-login">
+              <label for="password">Senha</label>
+              <input
+                id="password"
+                type="password"
+                name="password"
+                placeholder="Digite sua senha"
+                disabled="true"
+                onchange="validateFields()"
+                required
+              />
+            </div>
+
+            <div class="input-box-login">
+              <button type="button" id="login" disabled="true" onclick="loginSistema()">Entrar</button>
+            </div>
+
+            <div class="input-box-login">
+              <button type="button" id="recovery-password" disabled="true" onclick="recoverPassword()">Recuperar Senha</button>
+            </div>
+
+            <div class="input-box-login">
+              <button type="button" id="registrar" onclick="redirecionamentoRegistrarSistema()">Registrar</button>
+            </div>
+
+          </div>
+        </form>
+      </div>
+  </div>
+  </body>
+  <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-auth-compat.js"></script>
+  <script src="./frontend/firebase-init.js"></script>
+  <script src="./frontend/script.js"></script>
+</html>

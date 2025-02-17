@@ -44,7 +44,7 @@ function loginSistema() {
 }
 
 function redirecionamentoRegistrarSistema() {
-  window.location.href = "./frontend/registrar/registrar.html";
+  window.location.href = "./index.html";
 }
 
 function recoverPassword() {
@@ -73,7 +73,7 @@ const form = {
   password: () => document.getElementById("password"),
 };
 
-firebase.auth().onAuthStateChanged(user=> {
+firebase.auth().onAuthStateChanged((user) => {
   if (user) {
     window.location.href = "./frontend/home/homeinicial.html";
   }
