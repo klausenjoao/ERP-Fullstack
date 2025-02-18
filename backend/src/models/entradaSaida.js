@@ -1,24 +1,28 @@
 const connection = require('./connection');
 
+//Traz todas movimentaçoes
 const getAllEntradasSaidas = async () =>{
     const [entradasSaidas] = await connection.execute (`SELECT mov_id, mov_tipo, mov_data,usu_nome,
 COALESCE(COUNT(mov_id), 0) AS quantidade_itens from movimentacaoAlmoxarifado
-left JOIN movimentacao_item on mov_id=moi_mov_id
-left JOIN usuarios on mov_usu_id=usu_id
+INNER JOIN movimentacao_item on mov_id=moi_mov_id
+INNER JOIN usuarios on mov_usu_id=usu_id
 GROUP BY mov_id;`)
     return entradasSaidas;
 }
 
+//Traz a quantidade total de movimentacoes
 const getTotal = async () =>{
   const [totalEntradasSaidas] = await connection.execute (`SELECT COUNT(*) AS total FROM movimentacaoAlmoxarifado;`)
   return totalEntradasSaidas;
 }
 
+//Traz uma entrada baseada no id
 const getAllEntradasSaidasEspecifico = async (mov_id) =>{
     const [getEAespecifico] = await connection.execute('SELECT*FROM movimentacaoAlmoxarifado where mov_id=?',[mov_id])
     return getEAespecifico
 }
 
+//traz os produtos contidos na movimentacao
 const getAllProdutosEntradasSaidas = async (mov_id) =>{
     const [getProdutosEntadasSaidas] = await connection.execute(`
         SELECT
@@ -33,7 +37,7 @@ const getAllProdutosEntradasSaidas = async (mov_id) =>{
         return getProdutosEntadasSaidas;
 }
 
-
+//Cria a entrada saida
 const createEntradaSaida = async (entradasSaidas) =>{
         const { mov_tipo,mov_usu_id} = entradasSaidas;
     
