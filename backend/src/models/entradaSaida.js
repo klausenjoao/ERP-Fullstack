@@ -9,6 +9,11 @@ GROUP BY mov_id;`)
     return entradasSaidas;
 }
 
+const getTotal = async () =>{
+  const [totalEntradasSaidas] = await connection.execute (`SELECT COUNT(*) AS total FROM movimentacaoAlmoxarifado;`)
+  return totalEntradasSaidas;
+}
+
 const getAllEntradasSaidasEspecifico = async (mov_id) =>{
     const [getEAespecifico] = await connection.execute('SELECT*FROM movimentacaoAlmoxarifado where mov_id=?',[mov_id])
     return getEAespecifico
@@ -72,5 +77,6 @@ module.exports = {
     getAllEntradasSaidasEspecifico,
     getAllProdutosEntradasSaidas,
     createEntradaSaida,
-    createEntradasSaidasSelecionados
+    createEntradasSaidasSelecionados,
+    getTotal
 }

@@ -30,6 +30,8 @@
   width: 30%;
   height: 90%;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.212);
+  display: flex;
+  justify-content: center;
 }
 
 .componentesheader {
@@ -126,10 +128,23 @@ ul li:hover ul.opcoesSuspensas {
 .cabecalho {
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 .tittle span {
   font-weight: bold;
   font-size: 20px;
   word-break: break-all;
+  color: black;
+}
+
+.cabecalho div{
+  color: #cd0c0d;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.icon-home{
+  color: #b9110c;
 }

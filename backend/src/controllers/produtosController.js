@@ -7,6 +7,11 @@ const getAll = async (request, response) =>{
     return response.status(200).json(todospProdutos);
 };
 
+const getTotal = async (request, response) =>{
+    const totalProdutos = await produtos.getTotal();
+    return response.status(200).json(totalProdutos);
+};
+
 const getProdutoEspecifico = async (request, response) =>{
     const {id} = request.params;
     const produtoEspecifico = await produtos.getProdutoEspecifico(id);
@@ -36,5 +41,6 @@ module.exports={
     createProdutos,
     deleteProdutos,
     updatedProdutos,
-    getProdutoEspecifico
+    getProdutoEspecifico,
+    getTotal
 };
