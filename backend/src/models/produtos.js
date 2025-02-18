@@ -1,20 +1,25 @@
 const connection = require('./connection');
 
+
+//Busca todos produtos no banco
 const getAll = async () =>{
     const [produtos] = await connection.execute('SELECT*FROM produtos')
     return produtos;
 };
 
+//Busca um produto especifico com base no id
 const getProdutoEspecifico = async (id) =>{
     const [getProduto] = await connection.execute('SELECT*FROM produtos where id=?',[id])
     return getProduto
 }
 
+//Traz a quantidade total de produtos cadastrados
 const getTotal = async () =>{
     const [totalProdutos] = await connection.execute (`SELECT COUNT(*) AS total FROM produtos;`)
     return totalProdutos;
   }
 
+//Inseri o produto
 const createProdutos = async (produtos) =>{
     const { titulo, descricao } = produtos;
 
@@ -25,12 +30,13 @@ const createProdutos = async (produtos) =>{
     return {insertId:createProdutos.insertId};
 }
 
+//Deleta o produto baseado no id
 const deleteProdutos = async(id)=>{
     const removedProdutos = await connection.execute('DELETE FROM produtos WHERE id=?',[id]);
     return removedProdutos;
 }
 
-
+//Atualiza o produto, edita
 const updateProdutos = async(id, produtos)=>{
     const {titulo, descricao}= produtos;
 
