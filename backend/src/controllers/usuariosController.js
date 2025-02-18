@@ -5,6 +5,11 @@ const getAllUsuarios = async (request, response) => {
     return response.status(200).json(usuariosModel);
 }
 
+const getTotal = async (request, response) =>{
+    const totalUsuarios = await usuarios.getTotal();
+    return response.status(200).json(totalUsuarios);
+};
+
 const createUsuarios = async(request, response) =>{
     const createdUsuarios = await usuarios.createUsuarios(request.body);
     return response.status(201).json(createdUsuarios);
@@ -34,5 +39,6 @@ module.exports = {
     createUsuarios,
     getUsuariosEspecifico,
     deleteUsuarios,
-    updatedUsuario
+    updatedUsuario,
+    getTotal
 }

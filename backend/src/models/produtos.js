@@ -10,6 +10,11 @@ const getProdutoEspecifico = async (id) =>{
     return getProduto
 }
 
+const getTotal = async () =>{
+    const [totalProdutos] = await connection.execute (`SELECT COUNT(*) AS total FROM produtos;`)
+    return totalProdutos;
+  }
+
 const createProdutos = async (produtos) =>{
     const { titulo, descricao } = produtos;
 
@@ -40,5 +45,6 @@ module.exports = {
     createProdutos,
     deleteProdutos,
     updateProdutos,
-    getProdutoEspecifico
+    getProdutoEspecifico,
+    getTotal
 };

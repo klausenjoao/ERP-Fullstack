@@ -5,6 +5,11 @@ const getAllUsuarios = async () =>{
     return usuarios;
 }
 
+const getTotal = async () =>{
+    const [totalUsuarios] = await connection.execute (`SELECT COUNT(*) AS total FROM usuarios;`)
+    return totalUsuarios;
+  }
+
 const createUsuarios = async (usuarios) =>{
     const {usu_nome, usu_login, usu_senha, usu_ativo} = usuarios;
     const dateFormatted = new Date().toISOString().slice(0, 19).replace('T', ' ');
@@ -40,5 +45,6 @@ module.exports ={
     createUsuarios,
     getlUsuarioEspecifico,
     deleteUsuarios,
-    updateUsuario
+    updateUsuario,
+    getTotal
 }
