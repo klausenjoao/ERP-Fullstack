@@ -20,7 +20,7 @@ Este projeto foi desenvolvido para aplicar e aprimorar os conhecimentos adquirid
 
 Esse projeto foi desenvolvido com as seguintes tecnologias:
 
-- Node.js – Configuração das rotas e estruturação do backend.
+- Node.js/ Express – Configuração das rotas e estruturação do backend.
 - Insomnia - Testes das rotas.
 - JavaScript (Front-end) – Interface dinâmica para interação do usuário.
 - Firebase Authentication – Registro de usuários e reforço da segurança da página, impedindo acesso não autorizado às áreas internas do sistema.
