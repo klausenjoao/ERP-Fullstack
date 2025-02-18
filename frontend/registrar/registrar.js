@@ -24,6 +24,6 @@ function getErrorMessage(error){
 
 firebase.auth().onAuthStateChanged(user=> {
   if (user) {
-    window.location.href = "../home/homeinicial.html";
+    window.location.href = "./frontend/home/homeinicial.html";
   }
 });
