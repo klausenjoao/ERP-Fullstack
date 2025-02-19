@@ -1,4 +1,4 @@
-<h1 align="center">ERP-Fulltach: AlmoxSoft</h1>
+<h1 align="center">ERP-Fullstack: AlmoxSoft</h1>
 
 <p align="center">
 Este projeto foi desenvolvido para aplicar e aprimorar os conhecimentos adquiridos durante minhas férias da faculdade. Baseando-me em um projeto anterior de gerenciador escolar, implementei melhorias significativas para criar um ERP para almoxarifado.<br/>
