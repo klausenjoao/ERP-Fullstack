@@ -108,6 +108,7 @@ const enviarProdutosSelecionados = async () => {
     closeModalEspecificteste("modal-mov");
     closeModalEspecificteste("modal-inserir");
     loadProduto();
+    loadEntradaSaida();
   } catch (error) {
     console.error(error);
     alert("Erro ao enviar produtos.");
